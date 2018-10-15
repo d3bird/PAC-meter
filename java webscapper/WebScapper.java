@@ -20,7 +20,37 @@ public class WebScapper {
 	}
 	
 	
-	public void dowork() {
+	public String getTitle() {
+		try {
+			Document doc = Jsoup.connect(url).timeout(0).get();
+			return doc.title();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}//gets the website
+		return "error";
+	}
+	
+		//gets all of the links and there descriptions
+	public void getLinks() {
+		Document doc;
+		try {
+			doc = Jsoup.connect(url).timeout(0).get();
+			Elements links = doc.select("a[href]");  
+			
+			for (Element link : links) {  
+			    System.out.println("\nlink : " + link.attr("href"));  
+			    System.out.println("text : " + link.text());  
+			}  
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
+	
+	public void getArticle() {
 		//for testing purposes
 		url ="https://www.nytimes.com/2018/10/15/science/drought-beer-climate.html?action=click&contentCollection=science&region=rank&module=package&version=highlights&contentPlacement=3&pgtype=sectionfront";
 		//debug code
@@ -32,22 +62,6 @@ public class WebScapper {
 		try {
 			Document doc = Jsoup.connect(url).timeout(0).get();//gets the website
 			System.out.println("connected");
-			String title = doc.title();// gets the title of the website
-			
-			 //String description = doc.select("meta[name=description]").get(0).attr("content");
-			 //System.out.println("Meta description : " + description); 
-			
-			//gets all of the links and there descriptions
-			
-			/*Elements links = doc.select("a[href]");  
-			for (Element link : links) {  
-			    System.out.println("\nlink : " + link.attr("href"));  
-			    System.out.println("text : " + link.text());  
-			}  */
-			
-			//gets the contents by id
-			//Element content = doc.getElementById("content");
-			//Elements text  = content.getElementsByTag("p");
 			
 			
 			//gets the article and prints the article to the console

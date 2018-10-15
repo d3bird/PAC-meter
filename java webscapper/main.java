@@ -6,7 +6,7 @@ public class main {
 		// TODO Auto-generated method stub
 		System.out.println("starting web scapper tester");
 		WebScapper web = new WebScapper();
-		web.dowork();
+		web.getArticle();
 		
 	}
 
