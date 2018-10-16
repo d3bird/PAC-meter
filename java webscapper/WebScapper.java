@@ -52,7 +52,7 @@ public class WebScapper {
 	
 	public void getArticle() {
 		//for testing purposes
-		url ="https://www.nytimes.com/2018/10/15/science/drought-beer-climate.html?action=click&contentCollection=science&region=rank&module=package&version=highlights&contentPlacement=3&pgtype=sectionfront";
+		url ="https://www.nytimes.com/2018/10/12/science/cats-v-rats-in-new-york-the-rats-win.html?rref=collection%2Fsectioncollection%2Fscience&action=click&contentCollection=science&region=rank&module=package&version=highlights&contentPlacement=8&pgtype=sectionfront";
 		//debug code
 		System.out.println("starting webscrapper");
 		System.out.println("connecting to url");
@@ -62,15 +62,24 @@ public class WebScapper {
 		try {
 			Document doc = Jsoup.connect(url).timeout(0).get();//gets the website
 			System.out.println("connected");
-			
-			
+			System.out.println("");
+			System.out.println(doc.title());
+
+			System.out.println("");
+
 			//gets the article and prints the article to the console
 			Elements paragraphs = doc.getElementsByTag("p");
 		      for (Element paragraph : paragraphs) {
+		    	  if(paragraph.text().contains(" ")) {
 		            System.out.println(paragraph.text());
+					//System.out.println("");
+					//System.out.println("");
+
+		    	  }
 		      }
 			
-			
+				System.out.println("");
+
 			
 		} catch (IOException e) {
 			System.out.println("could not connect to website");
