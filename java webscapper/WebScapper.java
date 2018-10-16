@@ -7,6 +7,15 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+
+
+/** @file WebScapper.java
+ * @category Web Scraper
+ * @version 1.3
+ * 
+ * @author Scott Crawford (d3bird)
+ */
+
 public class WebScapper {
 
 	private String url;
@@ -15,11 +24,21 @@ public class WebScapper {
 		
 	}
 	
+	
+	/**
+	 * sets the url to a what ever u is set to
+	 * @author Scott Crawford (d3bird)
+	 * @param String u
+	 */
 	public void setURL(String u) {
 		url =u;
 	}
 	
-	
+	/**
+	 * gets the name of the article
+	 * @author Scott Crawford (d3bird)
+	 * @return String
+	 */
 	public String getTitle() {
 		try {
 			Document doc = Jsoup.connect(url).timeout(0).get();
@@ -30,7 +49,11 @@ public class WebScapper {
 		return "error";
 	}
 	
-		//gets all of the links and there descriptions
+	
+	/**
+	 * gets all of the links and there descriptions prints them to the screen
+	 * @author Scott Crawford (d3bird)
+	 */
 	public void getLinks() {
 		Document doc;
 		try {
@@ -49,10 +72,17 @@ public class WebScapper {
 		
 	}
 	
-	
+	/**
+	 * @param none
+	 *  takes the url that has been set and then takes the article from the article and the title from that page using Jsoup
+	 * 
+	 * @return none
+	 * @author Scott Crawford (d3bird)
+	 */
 	public void getArticle() {
 		//for testing purposes
-		url ="https://www.nytimes.com/2018/10/12/science/cats-v-rats-in-new-york-the-rats-win.html?rref=collection%2Fsectioncollection%2Fscience&action=click&contentCollection=science&region=rank&module=package&version=highlights&contentPlacement=8&pgtype=sectionfront";
+		//url ="https://www.nytimes.com/2018/10/12/science/cats-v-rats-in-new-york-the-rats-win.html?rref=collection%2Fsectioncollection%2Fscience&action=click&contentCollection=science&region=rank&module=package&version=highlights&contentPlacement=8&pgtype=sectionfront";
+		//url = "http://www.bostonherald.com/news/local_coverage/2018/10/nathan_carman_ordered_to_bring_rifle_to_deposition_this_month";
 		//debug code
 		System.out.println("starting webscrapper");
 		System.out.println("connecting to url");
