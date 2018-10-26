@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href = "popup.css"/>
+        <title> PAC-meter </title>
+        <script src="jquery-3.3.1.min.js">
+
+        </script>
+
+    </head>
+
+    <body>
+        <div id="main">
+
+            <h1 id="greet">PAC-meter</h1>
+            <input type="submit" id="autoButton" value="Author of Current Page">
+            <!--basic meter that is easy to test -->
+            <div>
+                <!--value is only fixed for testing. Actual value will be calculated -->
+                <meter id="scoreMeter" min="-100" max="100" value="90"> </meter>
+            </div>
+            <!-- value of input tag is the default -->
+            <input type="text" id="name" placeholder="Author Name" value="">
+            <input type="submit" id="nameButton">
+        </div>
+
+        <script src="popup.js">
+            <!-- javaScript for processing should go here -->
+        </script>
+
+    </body>
+</html>
