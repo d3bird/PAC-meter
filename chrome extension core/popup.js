@@ -1,12 +1,14 @@
-var submitButton = document.getElementById("nameButton");
+//var submitButton = document.getElementById("nameButton");
 var automaticButton = document.getElementById("autoButton");
 
-submitButton.addEventListener("click", readInName);
+//button for manual author name
+//submitButton.addEventListener("click", readInName);
 function readInName(){
     <!--stub for actual method -->
     alert("click detected");
 }
 
+//when user clicks automatic author analysis button 
 automaticButton.addEventListener("click", inPageAuthor);
 function inPageAuthor(){
     <!--stub for actual method -->
