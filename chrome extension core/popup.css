@@ -1,0 +1,37 @@
+#main {
+    width: 300px;
+    height: 100px;
+    text-align: center;
+}
+
+#name {
+    position: relative;
+    top: 20px;
+    padding: 10px;
+    clear: right;
+    font-size: 18px;
+}
+
+#nameButton {
+
+    position: relative;
+    top: 40px;
+    font-size: 18px;
+}
+
+#autoButton {
+    font-size: 17px;
+    height: 50px;
+    width: 280px;
+}
+
+#scoreMeter {
+    position: relative;
+    top: 5px;
+    height: 30px;
+    width: 240px;
+}
+
+body{
+
+}
