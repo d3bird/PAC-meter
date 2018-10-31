@@ -34,6 +34,11 @@
     width: 240px;
 }
 
+#resultsHeading{
+    position: relative;
+    left: 60px;
+}
+
 body{
 
 }

@@ -22,12 +22,14 @@ function inPageAuthor(){
         alert(currentURL + "\n\nThis is a new line");
 
         var rating; // integer level of bias
-        //links of other pages 
+        var author; //author of webpage 
+        //links of other pages
         //var link1;
         //var link2;
         //var link3;
 
         //changing html to results page
+        document.getElementById("resultsHeading").innerHTML="Results:";
     }
 );
 
