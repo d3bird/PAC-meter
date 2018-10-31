@@ -37,6 +37,45 @@
 #resultsHeading{
     position: relative;
     left: 60px;
+    bottom: 15px;
+}
+
+#authorHeading{
+    position: relative;
+    left: 60px;
+    bottom: 30px;
+}
+
+#biasHeading{
+    position: relative;
+    left: 60px;
+    bottom: 43px;
+}
+
+#linksHeading{
+    position: relative;
+    left: 60px;
+    bottom: 55px;
+}
+
+#link1{
+    position: relative;
+    left: 80px;
+    bottom: 55px;
+    clear: right;
+}
+
+#link2{
+    position: relative;
+    left: 80px;
+    bottom: 50px;
+    clear: right;
+}
+
+#link3{
+    position: relative;
+    left: 80px;
+    bottom: 45px;
 }
 
 body{
