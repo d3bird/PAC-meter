@@ -19,17 +19,20 @@ function inPageAuthor(){
         var currentURL = tabs[0].url; //set as current url of tab
         alert(currentURL + "\n\nThis is a new line");
 
-        var rating; // integer level of bias
         var author; //author of webpage
-        author;
+
+        //code to find author of webpage
+
         var bias; //numberical value of bias
+
+        //code to calculate bias of author on webpage
 
         //link urls
         var url1; //these should be set to a default page in the future
         var url2;
         var url3;
 
-        //get link urls
+        //code to set each of the article links
 
         //link elements to other pages
         var link1 = document.getElementById("link1");
@@ -39,7 +42,7 @@ function inPageAuthor(){
         var link3 = document.getElementById("link3");
         link3.setAttribute('href', url3);
 
-        //changing html to results page
+        //adding html to results page
         document.getElementById("resultsHeading").innerHTML="Results:";
         document.getElementById("authorHeading").innerHTML="-Author: " + author;
         document.getElementById("biasHeading").innerHTML="-Bias: " + bias;
