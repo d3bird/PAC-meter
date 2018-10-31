@@ -3,6 +3,9 @@
 //var submitButton = document.getElementById("nameButton");
 var automaticButton = document.getElementById("autoButton");
 
+
+
+
 //button for manual author name
 //submitButton.addEventListener("click", readInName);
 function readInName(){
@@ -18,7 +21,7 @@ function inPageAuthor(){
     chrome.tabs.query({"active": true}, function(tabs){
         var currentURL = tabs[0].url; //set as current url of tab
         alert(currentURL + "\n\nThis is a new line");
-
+        var output = getArticle();
         var rating; // integer level of bias
         var author; //author of webpage
         author;
