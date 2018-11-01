@@ -1,4 +1,4 @@
-const rp = require('request-promise');
+const rp = require('request');
 const cheerio = require('cheerio');
 
 const options = {
@@ -6,6 +6,7 @@ const options = {
   transform: function (body) {
     return cheerio.load(body);
   }
+
 };
 
 rp(options)
@@ -17,8 +18,6 @@ rp(options)
   });
 
 function getArticle(){
-	var output = [];
 	
-
-	return ouput;
+	return "ouput";
 }

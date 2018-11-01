@@ -21,10 +21,10 @@ function inPageAuthor(){
     chrome.tabs.query({"active": true}, function(tabs){
         var currentURL = tabs[0].url; //set as current url of tab
         alert(currentURL + "\n\nThis is a new line");
-        var output = getArticle();
+       // var output = getArticle();
         var rating; // integer level of bias
         var author; //author of webpage
-        author;
+        author = getArticle();
         var bias; //numberical value of bias
 
         //link urls
