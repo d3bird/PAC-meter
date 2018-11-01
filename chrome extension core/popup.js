@@ -21,12 +21,12 @@ function inPageAuthor(){
     chrome.tabs.query({"active": true}, function(tabs){
         var currentURL = tabs[0].url; //set as current url of tab
         alert(currentURL + "\n\nThis is a new line");
-<<<<<<< HEAD
+
        // var output = getArticle();
         var rating; // integer level of bias
         var author; //author of webpage
         author = getArticle();
-=======
+
 
         //proof of concept code - displays data in a new tab
         chrome.tabs.create({"active": false, "url": "debug.html"});
@@ -37,7 +37,7 @@ function inPageAuthor(){
 
         //code to find author of webpage
 
->>>>>>> 7f048d982c225634755f5d9304c87aafdf794fcd
+
         var bias; //numberical value of bias
 
         //code to calculate bias of author on webpage
