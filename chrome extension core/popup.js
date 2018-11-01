@@ -25,8 +25,9 @@ function inPageAuthor(){
        // var output = getArticle();
         var rating = 0; // integer level of bias
         var author; //author of webpage
-        author = getArticle();
+        //author = getArticle();
 
+        //var art = getArticle();
 
         //proof of concept code - displays data in a new tab
         chrome.tabs.create({"active": false, "url": "debug.html"});

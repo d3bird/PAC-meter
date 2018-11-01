@@ -1,17 +1,21 @@
-const rp = require('request');
+const request = require('request');
 const cheerio = require('cheerio');
+
+const options = {
+  uri: `https://www.google.com`,
+  transform: function (body) {
+    return cheerio.load(body);
+  }
+};
 
 var art =[];
 var title ="could not find";
 var author = "could not find";
 
 var url ='https://www.nytimes.com/2018/10/31/world/middleeast/saudi-arabia-yemen-cease-fire.html?rref=collection%2Fbyline%2Fgardiner-harris&action=click&contentCollection=undefined&region=stream&module=stream_unit&version=latest&contentPlacement=1&pgtype=collection';
+var url2 ='https://medium.com/s/story/dmt-is-the-drug-for-our-collective-crisis-of-meaning-eddbb4bb697c';
 
-function setURL(u){
-	url =u;
-}
-
-rp(url, function (error, response, html) {
+request(url2, function (error, response, html) {
   if (!error && response.statusCode == 200) {
     //console.log(html);
     console.log("running request");
@@ -25,8 +29,18 @@ rp(url, function (error, response, html) {
   }//$("h2, div, p")
 });
 
+
+
+function setURL(u){
+	url =u;
+}
+
+function getArticle(){
+	return art;
+}
+
 function getauthor(){
-	return author;
+	return "temp";
 }
 
 function gettitle() {
