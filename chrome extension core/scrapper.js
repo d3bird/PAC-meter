@@ -1,4 +1,4 @@
-const request = require('request');
+const rp = require('request');
 const cheerio = require('cheerio');
 
 var art =[];
@@ -11,7 +11,7 @@ function setURL(u){
 	url =u;
 }
 
-request(url, function (error, response, html) {
+rp(url, function (error, response, html) {
   if (!error && response.statusCode == 200) {
     //console.log(html);
     console.log("running request");
