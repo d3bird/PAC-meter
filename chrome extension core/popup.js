@@ -23,7 +23,7 @@ function inPageAuthor(){
         alert(currentURL + "\n\nThis is a new line");
 
        // var output = getArticle();
-        var rating; // integer level of bias
+        var rating = 0; // integer level of bias
         var author; //author of webpage
         author = getArticle();
 
@@ -33,7 +33,7 @@ function inPageAuthor(){
 
 
         //end proof of concept section
-        var author; //author of webpage
+
 
         //code to find author of webpage
 
