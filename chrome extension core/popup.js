@@ -19,6 +19,11 @@ function inPageAuthor(){
         var currentURL = tabs[0].url; //set as current url of tab
         alert(currentURL + "\n\nThis is a new line");
 
+        //proof of concept code - displays data in a new tab
+        chrome.tabs.create({"active": false, "url": "debug.html"});
+
+
+        //end proof of concept section
         var author; //author of webpage
 
         //code to find author of webpage
@@ -51,7 +56,7 @@ function inPageAuthor(){
         document.getElementById("link2").innerHTML="Article 2";
         document.getElementById("link3").innerHTML="Article 3";
 
-        document.getElementById("main").style.height = "100px";
+
 
     }
 );
