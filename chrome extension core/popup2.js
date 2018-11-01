@@ -91913,7 +91913,6 @@ WError.prototype.cause = function we_cause(c)
 //author: Joey Cunningham & scott Crawford
 
 
-
 const request = require('request');
 const cheerio = require('cheerio');
 
@@ -91964,10 +91963,10 @@ function inPageAuthor(){
 
        // var output = getArticle();
         var rating = 0; // integer level of bias
-        var author=  getArticle();; //author of webpage
+        var author=  "temp"; //author of webpage
         //author = getArticle();
 
-        var art =  getArticle();
+       // var art =  getArticle();
       
 
         //proof of concept code - displays data in a new tab
