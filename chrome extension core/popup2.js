@@ -91959,7 +91959,7 @@ function inPageAuthor(){
     //populate array with current active tab
     chrome.tabs.query({"active": true}, function(tabs){
         var currentURL = tabs[0].url; //set as current url of tab
-        alert(currentURL + "\n\nThis is a new line");
+        //alert(currentURL + "\n\nThis is a new line");
 
        // var output = getArticle();
         var rating = 0; // integer level of bias

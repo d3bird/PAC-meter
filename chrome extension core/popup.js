@@ -58,7 +58,7 @@ function inPageAuthor(){
       
 
         //proof of concept code - displays data in a new tab
-        chrome.tabs.create({"active": false, "url": "debug.html"});
+        //chrome.tabs.create({"active": false, "url": "debug.html"});
 
 
         //end proof of concept section
