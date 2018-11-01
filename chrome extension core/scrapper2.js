@@ -91934,7 +91934,7 @@ request(url2, function (error, response, html) {
  	var $ = cheerio.load(html);
  	console.log("loading");
  	$("#story, p").each(function(i, elem){//gets the website and adds the article to the art array;
- 		//art.push($(this).text());
+ 		art.push($(this).text());
  		//console.log($(this).text());
  	});
  	console.log(art[0]);
@@ -91946,8 +91946,10 @@ request(url2, function (error, response, html) {
 function setURL(u){
 	url =u;
 }
-
-
+//gets the article
+function getArticle(){
+	return art;
+}
 
 function getauthor(){
 	return "temp";

@@ -34,7 +34,7 @@ request(url2, function (error, response, html) {
 function setURL(u){
 	url =u;
 }
-
+//gets the article
 function getArticle(){
 	return art;
 }
