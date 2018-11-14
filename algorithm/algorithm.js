@@ -1,6 +1,23 @@
 function msg() {
         alert("test javascript");
 }
+function parse(web_scraper variable){
+	var x = "Test to see if i can break a string.";
+	var string_array = x.split(' '); // breaks each individual word up by whitespace and stores them into array
+	var y = string_array.length - 1;
+	var i = 0;
+	
+	while( i != y){
+		var samplestr = string_Array[i];
+		if(samplestr[samplestr.length - 1] == "?"){
+			string_array[i] = samplestr.substr(0, samplestr.length - 1); // if the string contains a question mark, it will be removed for accurate comparison of keyword
+		}
+		// same will be done for periods, commas, and quotations.
+		compare(string_array[i]); // this sends each individual string into the comparison function,  but this will be changed to return the entire array of characters. It will be left as is for now.
+		i++;
+	}
+
+}
 
 function print_keywords() {
 
