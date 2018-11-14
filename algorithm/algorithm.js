@@ -7,7 +7,7 @@ function parse(web_scraper variable){
 	var y = string_array.length - 1;
 	var i = 0;
 	
-	while( i <= y){
+	while( i < y){
 		var samplestr = string_Array[i];
 		if(samplestr[samplestr.length - 1] == "?"){
 			string_array[i] = samplestr.substr(0, samplestr.length - 1); // if the string contains a question mark, it will be removed for accurate comparison of keyword
@@ -17,10 +17,10 @@ function parse(web_scraper variable){
                 }
 		if(samplestr[samplestr.length - 1] == ","){
                         string_array[i] = samplestr.substr(0, samplestr.length - 1); // if the string contains a comma, it will be removed for accurate comparison of keyword
-                }.
-		compare(string_array[i]); // this sends each individual string into the comparison function,  but this will be changed to return the entire array of strings. It will be left as is for now.
+                }
 		i++;
 	}
+	return string_array;
 
 }
 
