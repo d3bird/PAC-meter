@@ -2,7 +2,7 @@ function msg() {
         alert("test javascript");
 }
 function parse(web_scraper variable){
-	var x = "Test to see if i can break a string.";
+	var x =  getArticle();
 	var string_array = x.split(' '); // breaks each individual word up by whitespace and stores them into array
 	var y = string_array.length - 1;
 	var i = 0;
