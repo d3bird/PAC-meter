@@ -55,7 +55,7 @@ function inPageAuthor(){
         //author = getArticle();
 
        // var art =  getArticle();
-      
+
 
         //proof of concept code - displays data in a new tab
         //chrome.tabs.create({"active": false, "url": "debug.html"});
@@ -94,7 +94,6 @@ function inPageAuthor(){
         document.getElementById("link1").innerHTML="Article 1";
         document.getElementById("link2").innerHTML="Article 2";
         document.getElementById("link3").innerHTML="Article 3";
-
 
 
     }

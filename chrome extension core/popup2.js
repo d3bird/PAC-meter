@@ -92007,8 +92007,6 @@ function inPageAuthor(){
         document.getElementById("link2").innerHTML="Article 2";
         document.getElementById("link3").innerHTML="Article 3";
 
-
-
     }
 );
 
