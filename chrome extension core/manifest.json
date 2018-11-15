@@ -21,7 +21,8 @@
 				"*://*/*"
 			],
             "run_at": "document_end",
-			"js": ["jquery-3.3.1.min.js","content.js"]
+			"js": ["jquery-3.3.1.min.js","content.js"],
+            "css": ["highlight.css"]
 		}
 	]
 }
