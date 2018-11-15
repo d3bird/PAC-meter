@@ -92052,8 +92052,8 @@ function getBais() {
             words = art[i].split(" ");
             for (var q = 0; q < words.length; q++) {//loops through each word
                 for (var x = 0; x < keywords.length; x++) {//loops through all keywords
-                    console.log("number of political words = " + output);
                     if (words[q].toLowerCase() == keywords[x].toLowerCase()) {
+                        console.log(words[q].toLowerCase() +" "+ keywords[x].toLowerCase());
                         output++;
                     }
                 }
@@ -92077,32 +92077,37 @@ function FindAuthor() {
     var words;
     var found = false;
     for (var i = 0; i < art.length; i++) {
+        if (found) {
+            break;
+        }
        
-       // console.log("secton: " + i);
+       console.log("secton: " + i);
         try {
-            //console.log(art[i].toString());
+            console.log(art[i].toString());
             words = art[i].split(" ");
-            for (var q = 0; q < words.length; q++) {
-                console.log(words[q]);
-                if (words[q].trim() == "By") {
-                   // console.log("found by");
-                   // console.log(words.length);
-                   // console.log(q);
+            if (words.length >= 3) {
+                for (var q = 0; q < words.length; q++) {
+                    console.log(words[q]);
+                    if (words[q].trim() == "By" || words[q].trim() == "by") {
+                        console.log("found by");
+                        console.log(words.length);
+                        console.log(q);
 
-                    if (!(words.length == (q - 1))) {
-                        found = true;
-                        //console.log("found the real");
-                        output = "";
-                       // console.log(words[q + 1].toString() );
-                        output += words[q + 1] + " " + words[q + 2];
-                        if (!(words.length == (q + 1))) {
-                            if (words[q + 3].trim().toLowerCase() == "and") {
-                                output += " and ";
-                                output += words[q + 4] + " " + words[q + 5];
+                        if (!((words.length - 1) == q)) {//!(words.length == (q - 1))
+                            found = true;
+                            console.log("found the real");
+                            output = "";
+                            console.log(words[q + 1].toString());
+                            output += words[q + 1] + " " + words[q + 2];
+                            if (!(words.length == (q + 1))) {
+                                if (words[q + 3].trim().toLowerCase() == "and") {
+                                    output += " and ";
+                                    output += words[q + 4] + " " + words[q + 5];
+                                }
                             }
                         }
-                    }
 
+                    }
                 }
             }
 
@@ -92110,7 +92115,7 @@ function FindAuthor() {
             //console.log("could not convert part of article");
         }
     }
-    console.log("the output is: " + output);
+    //console.log("the output is: " + output);
     return output;
 }
 
@@ -92129,9 +92134,9 @@ function inPageAuthor(){
         request(currentURL, function (error, response, html) {
             if (!error && response.statusCode == 200) {
                 //console.log(html);
-                console.log("running request");
+               // console.log("running request");
                 var $ = cheerio.load(html);
-                console.log("loading");
+             //   console.log("loading");
 
                 //old way of getting the article
                 /*$("#story, p").each(function (i, elem) {//gets the website and adds the article to the art array;
@@ -92141,7 +92146,7 @@ function inPageAuthor(){
                 });*/
                 //new way  of getting the article
 
-                console.log("the article was created by");
+             //   console.log("the article was created by");
                 $("#author creator, p").each(function (i, elem) {//gets the website and adds the article to the art array;
                      art.push($(this).text());
                     //console.log($(this).text());
@@ -92160,6 +92165,7 @@ function inPageAuthor(){
 
 
         //code to find author of webpage
+        console.log("finding the author");
         author = FindAuthor();
         console.log(author);
         var bias = getBais(); //numberical value of bias
