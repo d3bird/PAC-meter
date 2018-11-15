@@ -91916,16 +91916,153 @@ WError.prototype.cause = function we_cause(c)
 const request = require('request');
 const cheerio = require('cheerio');
 
-
-
+var keywords = ["Abortion",
+    "Affirmative Action",
+    "Alternative Energy",
+    "Armed Teachers",
+    "Bitcoin",
+    "Border Security",
+    "Border Wall",
+    "Campaign Finance",
+    "Candidate Transparency",
+    "Capital Gains Tax",
+    "China Tariffs",
+    "Citizenship Test",
+    "Climate Change",
+    "Confederate Flag",
+    "Corporate Mega Mergers",
+    "Corporate Tax",
+    "Criminal Politicians",
+    "Cuba",
+    "Dakota Access Pipeline",
+    "Death Penalty",
+    "Deporting Criminal Immigrants",
+    "Domestic Jobs",
+    "Drones",
+    "Drug Policy",
+    "Drug Price Regulation",
+    "Dual Citizenship",
+    "Economic Stimulus",
+    "Edward Snowden",
+    "Electoral College",
+    "Eminent Domain",
+    "Equal pay",
+    "Estate Tax",
+    "Euthanasia",
+    "Farm Subsidies",
+    "Federal Reserve",
+    "First Amendment",
+    "Flag Burning",
+    "Foreign Aid",
+    "Foreign Elections",
+    "Foreign Lobbying",
+    "Fracking",
+    "GMO Labels",
+    "Gay Marriage",
+    "Gender Identity",
+    "Gender Workplace Diversity",
+    "Gerrymandering",
+    "Government Mandates",
+    "Government Pensions",
+    "Government Spending",
+    "Gun Control",
+    "Gun Liability",
+    "ISIS",
+    "ISIS Ground Troops",
+    "Illegal Immigrant Detention",
+    "Immigrant Assimilation",
+    "Immigrant Children",
+    "Immigrant Laborers",
+    "Immigration",
+    "Immigration Ban",
+    "Immigration Healthcare",
+    "In-State Tuition",
+    "Israel",
+    "LGBT",
+    "Labor Unions",
+    "Lobbyist",
+    "Mandatory Military Service",
+    "Mandatory Vaccines",
+    "Marijuana",
+    "Medicaid",
+    "Medicaid Work Requirement",
+    "Medicare Drug Prices",
+    "Mental Health",
+    "Military Spending",
+    "Minimum Voting Age",
+    "Minimum Wage",
+    "Muslim Immigrants",
+    "Muslim Surveillance",
+    "NAFTA",
+    "NATO",
+    "NSA Domestic Surveillance",
+    "NSA Surveillance",
+    "Net Neutrality",
+    "Niqab",
+    "No-Fly List Gun Control",
+    "North Korea Military Strikes",
+    "Nuclear Energy",
+    "Obamacare",
+    "Offshore Banking",
+    "Oil Drilling",
+    "Online Sales Tax",
+    "Overtime Pay",
+    "Paid Sick Leave",
+    "Patriot Act",
+    "Pension Reform",
+    "Plastic Product Ban",
+    "Pre-Existing Conditions",
+    "Property Taxes",
+    "Religious Freedom Act",
+    "Right of Foreigners to Vote",
+    "Safe Haven",
+    "Safe Spaces",
+    "Sanctuary Cities",
+    "Single-Payer Healthcare",
+    "Skilled Immigrants",
+    "Social Media Regulation",
+    "Social Security",
+    "Space Exploration",
+    "Syrian Refugees",
+    "Tariffs",
+    "Taxes",
+    "Term Limits",
+    "Terrorism",
+    "Torture",
+    "Ukraine",
+    "United Nations",
+    "Universal Basic Income",
+    "VA Privatization",
+    "Voter Fraud",
+    "War on ISIS",
+    "Welfare",
+    "Welfare Drug Testing",
+    "Whistleblower Protection",
+    "Women in combat",
+    "Yemen"
+];
 
 var art =[];
 
 function getBais() {
     var output = 0;
-
-
-
+    var words;
+    for (var i = 0; i < art.length; i++) {//loops through each readible paragraph
+        try {
+            words = art[i].split(" ");
+            for (var q = 0; q < words.length; q++) {//loops through each word
+                for (var x = 0; x < keywords.length; x++) {//loops through all keywords
+                    console.log("number of political words = " + output);
+                    if (words[q].toLowerCase() == keywords[x].toLowerCase()) {
+                        output++;
+                    }
+                }
+            }
+        } catch (err) {
+            //console.log("could not convert part of article");
+        }
+    }
+    console.log("number of political words = " + output);
     return output;
 }
 
