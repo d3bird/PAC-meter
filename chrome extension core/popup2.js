@@ -92053,7 +92053,7 @@ function getBais() {
             for (var q = 0; q < words.length; q++) {//loops through each word
                 for (var x = 0; x < keywords.length; x++) {//loops through all keywords
                     if (words[q].toLowerCase() == keywords[x].toLowerCase()) {
-                        console.log(words[q].toLowerCase() +" "+ keywords[x].toLowerCase());
+                       // console.log(words[q].toLowerCase() +" "+ keywords[x].toLowerCase());
                         output++;
                     }
                 }
@@ -92062,7 +92062,7 @@ function getBais() {
             //console.log("could not convert part of article");
         }
     }
-    console.log("number of political words = " + output);
+   // console.log("number of political words = " + output);
     return output;
 }
 
@@ -92081,23 +92081,23 @@ function FindAuthor() {
             break;
         }
        
-       console.log("secton: " + i);
+      // console.log("secton: " + i);
         try {
-            console.log(art[i].toString());
+            //console.log(art[i].toString());
             words = art[i].split(" ");
             if (words.length >= 3) {
                 for (var q = 0; q < words.length; q++) {
-                    console.log(words[q]);
+                  //  console.log(words[q]);
                     if (words[q].trim() == "By" || words[q].trim() == "by") {
-                        console.log("found by");
-                        console.log(words.length);
-                        console.log(q);
+                     //   console.log("found by");
+                     //   console.log(words.length);
+                     //   console.log(q);
 
                         if (!((words.length - 1) == q)) {//!(words.length == (q - 1))
                             found = true;
-                            console.log("found the real");
+                          //  console.log("found the real");
                             output = "";
-                            console.log(words[q + 1].toString());
+                            //console.log(words[q + 1].toString());
                             output += words[q + 1] + " " + words[q + 2];
                             if (!(words.length == (q + 1))) {
                                 if (words[q + 3].trim().toLowerCase() == "and") {
@@ -92149,10 +92149,10 @@ function inPageAuthor(){
              //   console.log("the article was created by");
                 $("#author creator, p").each(function (i, elem) {//gets the website and adds the article to the art array;
                      art.push($(this).text());
-                    //console.log($(this).text());
-                    //console.log();
+                  //  console.log($(this).text());
+                  //  console.log();
                 });
-                //console.log(art[0]);
+               
             }//$("h2, div, p")
         });
        
