@@ -31308,7 +31308,7 @@ var IncomingMessage = exports.IncomingMessage = function (xhr, response, mode, f
 		self.url = response.url
 		self.statusCode = response.status
 		self.statusMessage = response.statusText
-
+		
 		response.headers.forEach(function (header, key){
 			self.headers[key.toLowerCase()] = header
 			self.rawHeaders.push(key, header)
@@ -31438,7 +31438,7 @@ IncomingMessage.prototype._onXHRProgress = function () {
 				self.push(new Buffer(response))
 				break
 			}
-			// Falls through in IE8
+			// Falls through in IE8	
 		case 'text':
 			try { // This will fail when readyState = 3 in IE9. Switch mode and wait for readyState = 4
 				response = xhr.responseText
@@ -32790,13 +32790,13 @@ Script.prototype.runInContext = function (context) {
     if (!(context instanceof Context)) {
         throw new TypeError("needs a 'context' argument.");
     }
-
+    
     var iframe = document.createElement('iframe');
     if (!iframe.style) iframe.style = {};
     iframe.style.display = 'none';
-
+    
     document.body.appendChild(iframe);
-
+    
     var win = iframe.contentWindow;
     var wEval = win.eval, wExecScript = win.execScript;
 
@@ -32805,7 +32805,7 @@ Script.prototype.runInContext = function (context) {
         wExecScript.call(win, 'null');
         wEval = win.eval;
     }
-
+    
     forEach(Object_keys(context), function (key) {
         win[key] = context[key];
     });
@@ -32814,11 +32814,11 @@ Script.prototype.runInContext = function (context) {
             win[key] = context[key];
         }
     });
-
+    
     var winKeys = Object_keys(win);
 
     var res = wEval.call(win, this.code);
-
+    
     forEach(Object_keys(win), function (key) {
         // Avoid copying circular objects like `top` and `window` by only
         // updating existing context properties or new properties in the `win`
@@ -32833,9 +32833,9 @@ Script.prototype.runInContext = function (context) {
             defineProp(context, key, win[key]);
         }
     });
-
+    
     document.body.removeChild(iframe);
-
+    
     return res;
 };
 
@@ -38185,7 +38185,7 @@ module.exports={
         "$data": {
             "type": "string",
             "anyOf": [
-                { "format": "relative-json-pointer" },
+                { "format": "relative-json-pointer" }, 
                 { "format": "json-pointer" }
             ]
         }
@@ -39250,8 +39250,8 @@ function _setExports(ndebug) {
 
 module.exports = _setExports(process.env.NODE_NDEBUG);
 
-}).call(this,{"isBuffer":require("../../../../../../AppData/Roaming/npm/node_modules/watchify/node_modules/is-buffer/index.js")},require('_process'))
-},{"../../../../../../AppData/Roaming/npm/node_modules/watchify/node_modules/is-buffer/index.js":109,"_process":138,"assert":15,"stream":174,"util":186}],236:[function(require,module,exports){
+}).call(this,{"isBuffer":require("../../../../../../../AppData/Roaming/npm/node_modules/watchify/node_modules/is-buffer/index.js")},require('_process'))
+},{"../../../../../../../AppData/Roaming/npm/node_modules/watchify/node_modules/is-buffer/index.js":109,"_process":138,"assert":15,"stream":174,"util":186}],236:[function(require,module,exports){
 
 /*!
  *  Copyright 2010 LearnBoost <dev@learnboost.com>
@@ -39281,7 +39281,7 @@ var crypto = require('crypto')
  * Valid keys.
  */
 
-var keys =
+var keys = 
   [ 'acl'
   , 'location'
   , 'logging'
@@ -39320,7 +39320,7 @@ module.exports.authorization = authorization
  * @param {Object} options
  * @return {String}
  * @api private
- */
+ */ 
 
 function hmacSha1 (options) {
   return crypto.createHmac('sha1', options.secret).update(options.message).digest('base64')
@@ -39329,8 +39329,8 @@ function hmacSha1 (options) {
 module.exports.hmacSha1 = hmacSha1
 
 /**
- * Create a base64 sha1 HMAC for `options`.
- *
+ * Create a base64 sha1 HMAC for `options`. 
+ * 
  * @param {Object} options
  * @return {String}
  * @api private
@@ -39343,10 +39343,10 @@ function sign (options) {
 module.exports.sign = sign
 
 /**
- * Create a base64 sha1 HMAC for `options`.
+ * Create a base64 sha1 HMAC for `options`. 
  *
  * Specifically to be used with S3 presigned URLs
- *
+ * 
  * @param {Object} options
  * @return {String}
  * @api private
@@ -39362,7 +39362,7 @@ module.exports.signQuery= signQuery
  * Return a string for sign() with the given `options`.
  *
  * Spec:
- *
+ * 
  *    <verb>\n
  *    <md5>\n
  *    <content-type>\n
@@ -39378,7 +39378,7 @@ module.exports.signQuery= signQuery
 function stringToSign (options) {
   var headers = options.amazonHeaders || ''
   if (headers) headers += '\n'
-  var r =
+  var r = 
     [ options.verb
     , options.md5
     , options.contentType
@@ -39394,7 +39394,7 @@ module.exports.stringToSign = stringToSign
  * for S3 presigned URLs
  *
  * Spec:
- *
+ * 
  *    <date>\n
  *    <resource>
  *
@@ -42368,8 +42368,8 @@ exports.update = function(arr, parent) {
 
 // module.exports = $.extend(exports);
 
-}).call(this,{"isBuffer":require("../../../../../../../AppData/Roaming/npm/node_modules/watchify/node_modules/is-buffer/index.js")})
-},{"../../../../../../../AppData/Roaming/npm/node_modules/watchify/node_modules/is-buffer/index.js":109,"htmlparser2":325,"parse5":570}],251:[function(require,module,exports){
+}).call(this,{"isBuffer":require("../../../../../../../../AppData/Roaming/npm/node_modules/watchify/node_modules/is-buffer/index.js")})
+},{"../../../../../../../../AppData/Roaming/npm/node_modules/watchify/node_modules/is-buffer/index.js":109,"htmlparser2":325,"parse5":570}],251:[function(require,module,exports){
 /**
  * Module dependencies
  */
@@ -43256,8 +43256,8 @@ CombinedStream.prototype._emitError = function(err) {
   this.emit('error', err);
 };
 
-}).call(this,{"isBuffer":require("../../../../../../../AppData/Roaming/npm/node_modules/watchify/node_modules/is-buffer/index.js")})
-},{"../../../../../../../AppData/Roaming/npm/node_modules/watchify/node_modules/is-buffer/index.js":109,"./defer.js":256,"delayed-stream":266,"stream":174,"util":186}],256:[function(require,module,exports){
+}).call(this,{"isBuffer":require("../../../../../../../../AppData/Roaming/npm/node_modules/watchify/node_modules/is-buffer/index.js")})
+},{"../../../../../../../../AppData/Roaming/npm/node_modules/watchify/node_modules/is-buffer/index.js":109,"./defer.js":256,"delayed-stream":266,"stream":174,"util":186}],256:[function(require,module,exports){
 (function (process,setImmediate){
 module.exports = defer;
 
@@ -43397,8 +43397,8 @@ function objectToString(o) {
   return Object.prototype.toString.call(o);
 }
 
-}).call(this,{"isBuffer":require("../../../../../../../AppData/Roaming/npm/node_modules/watchify/node_modules/is-buffer/index.js")})
-},{"../../../../../../../AppData/Roaming/npm/node_modules/watchify/node_modules/is-buffer/index.js":109}],258:[function(require,module,exports){
+}).call(this,{"isBuffer":require("../../../../../../../../AppData/Roaming/npm/node_modules/watchify/node_modules/is-buffer/index.js")})
+},{"../../../../../../../../AppData/Roaming/npm/node_modules/watchify/node_modules/is-buffer/index.js":109}],258:[function(require,module,exports){
 "use strict";
 
 module.exports = CSSselect;
@@ -43549,7 +43549,7 @@ var attributeRules = {
 		if(len === 0){
 			return falseFunc;
 		}
-
+		
 		if(data.ignoreCase){
 			value = value.toLowerCase();
 
@@ -45073,7 +45073,7 @@ DomHandler.prototype.onerror = function(error){
 
 DomHandler.prototype.onclosetag = function(){
 	//if(this._tagStack.pop().name !== name) this._handleCallback(Error("Tagname didn't match!"));
-
+	
 	var elem = this._tagStack.pop();
 
 	if(this._options.withEndIndices && elem){
@@ -45618,7 +45618,7 @@ exports.prepend = function(elem, prev){
 	if(elem.prev){
 		elem.prev.next = prev;
 	}
-
+	
 	prev.parent = parent;
 	prev.prev = elem.prev;
 	prev.next = elem;
@@ -45802,11 +45802,11 @@ exports.ECKey = function(curve, key, isPublic)
 //      var y = key.slice(bytes+1);
 //      this.P = new ECPointFp(curve,
 //        curve.fromBigInteger(new BigInteger(x.toString("hex"), 16)),
-//        curve.fromBigInteger(new BigInteger(y.toString("hex"), 16)));
+//        curve.fromBigInteger(new BigInteger(y.toString("hex"), 16)));      
       this.P = curve.decodePointHex(key.toString("hex"));
     }else{
       if(key.length != bytes) return false;
-      priv = new BigInteger(key.toString("hex"), 16);
+      priv = new BigInteger(key.toString("hex"), 16);      
     }
   }else{
     var n1 = n.subtract(BigInteger.ONE);
@@ -45828,7 +45828,7 @@ exports.ECKey = function(curve, key, isPublic)
       if(!key || !key.P) return false;
       var S = key.P.multiply(priv);
       return Buffer.from(unstupid(S.getX().toBigInteger().toString(16),bytes*2),"hex");
-   }
+   }     
   }
 }
 
@@ -46270,7 +46270,7 @@ ECFieldElementFp.prototype.modReduce = function(x)
             {
                 u = u.multiply(this.getR());
             }
-            x = u.add(v);
+            x = u.add(v); 
         }
         while (x.compareTo(q) >= 0)
         {
@@ -47221,8 +47221,8 @@ var util = require('util')
   , net = require('net')
   , tls = require('tls')
   , AgentSSL = require('https').Agent
-
-function getConnectionName(host, port) {
+  
+function getConnectionName(host, port) {  
   var name = ''
   if (typeof host === 'string') {
     name = host + ':' + port
@@ -47231,7 +47231,7 @@ function getConnectionName(host, port) {
     name = host.host + ':' + host.port + ':' + (host.localAddress ? (host.localAddress + ':') : ':')
   }
   return name
-}
+}    
 
 function ForeverAgent(options) {
   var self = this
@@ -47249,7 +47249,7 @@ function ForeverAgent(options) {
     } else if (self.sockets[name].length < self.minSockets) {
       if (!self.freeSockets[name]) self.freeSockets[name] = []
       self.freeSockets[name].push(socket)
-
+      
       // if an error happens while we don't use the socket anyway, meh, throw the socket away
       var onIdleError = function() {
         socket.destroy()
@@ -47275,7 +47275,7 @@ ForeverAgent.prototype.createConnection = net.createConnection
 ForeverAgent.prototype.addRequestNoreuse = Agent.prototype.addRequest
 ForeverAgent.prototype.addRequest = function(req, host, port) {
   var name = getConnectionName(host, port)
-
+  
   if (typeof host !== 'string') {
     var options = host
     port = options.port
@@ -47304,7 +47304,7 @@ ForeverAgent.prototype.removeSocket = function(s, name, host, port) {
     delete this.sockets[name]
     delete this.requests[name]
   }
-
+  
   if (this.freeSockets[name]) {
     var index = this.freeSockets[name].indexOf(s)
     if (index !== -1) {
@@ -50449,8 +50449,8 @@ module.exports = {
 
 };
 
-}).call(this,{"isBuffer":require("../../../../../../../AppData/Roaming/npm/node_modules/watchify/node_modules/is-buffer/index.js")})
-},{"../../../../../../../AppData/Roaming/npm/node_modules/watchify/node_modules/is-buffer/index.js":109,"./utils":330,"assert-plus":235,"crypto":63,"http":175,"jsprim":339,"sshpk":629,"util":186}],330:[function(require,module,exports){
+}).call(this,{"isBuffer":require("../../../../../../../../AppData/Roaming/npm/node_modules/watchify/node_modules/is-buffer/index.js")})
+},{"../../../../../../../../AppData/Roaming/npm/node_modules/watchify/node_modules/is-buffer/index.js":109,"./utils":330,"assert-plus":235,"crypto":63,"http":175,"jsprim":339,"sshpk":629,"util":186}],330:[function(require,module,exports){
 // Copyright 2012 Joyent, Inc.  All rights reserved.
 
 var assert = require('assert-plus');
@@ -52405,8 +52405,8 @@ var validate = exports._validate = function(/*Any*/instance,/*Object*/schema,/*O
 			if(typeof instance != 'object' || instance instanceof Array){
 				errors.push({property:path,message:"an object is required"});
 			}
-
-			for(var i in objTypeDef){
+			
+			for(var i in objTypeDef){ 
 				if(objTypeDef.hasOwnProperty(i)){
 					var value = instance[i];
 					// skip _not_ specified properties
@@ -68018,7 +68018,7 @@ function compare (a, b) {
 }
 
 function generateBase (httpMethod, base_uri, params) {
-  // adapted from https://dev.twitter.com/docs/auth/oauth and
+  // adapted from https://dev.twitter.com/docs/auth/oauth and 
   // https://dev.twitter.com/docs/auth/creating-signature
 
   // Parameter normalization
@@ -85650,8 +85650,8 @@ Key._oldVersionDetect = function (obj) {
 	return ([1, 0]);
 };
 
-}).call(this,{"isBuffer":require("../../../../../../../AppData/Roaming/npm/node_modules/watchify/node_modules/is-buffer/index.js")})
-},{"../../../../../../../AppData/Roaming/npm/node_modules/watchify/node_modules/is-buffer/index.js":109,"./algs":611,"./dhe":613,"./ed-compat":614,"./errors":615,"./fingerprint":616,"./formats/auto":617,"./formats/dnssec":618,"./formats/pem":620,"./formats/pkcs1":621,"./formats/pkcs8":622,"./formats/rfc4253":623,"./formats/ssh":625,"./formats/ssh-private":624,"./private-key":631,"./signature":632,"./utils":634,"assert-plus":235,"crypto":63}],631:[function(require,module,exports){
+}).call(this,{"isBuffer":require("../../../../../../../../AppData/Roaming/npm/node_modules/watchify/node_modules/is-buffer/index.js")})
+},{"../../../../../../../../AppData/Roaming/npm/node_modules/watchify/node_modules/is-buffer/index.js":109,"./algs":611,"./dhe":613,"./ed-compat":614,"./errors":615,"./fingerprint":616,"./formats/auto":617,"./formats/dnssec":618,"./formats/pem":620,"./formats/pkcs1":621,"./formats/pkcs8":622,"./formats/rfc4253":623,"./formats/ssh":625,"./formats/ssh-private":624,"./private-key":631,"./signature":632,"./utils":634,"assert-plus":235,"crypto":63}],631:[function(require,module,exports){
 // Copyright 2017 Joyent, Inc.
 
 module.exports = PrivateKey;
@@ -91377,7 +91377,7 @@ function bytesToUuid(buf, offset) {
   var i = offset || 0;
   var bth = byteToHex;
   // join used to fix memory issue caused by concatenation: https://bugs.chromium.org/p/v8/issues/detail?id=3175#c4
-  return ([bth[buf[i++]], bth[buf[i++]],
+  return ([bth[buf[i++]], bth[buf[i++]], 
 	bth[buf[i++]], bth[buf[i++]], '-',
 	bth[buf[i++]], bth[buf[i++]], '-',
 	bth[buf[i++]], bth[buf[i++]], '-',
@@ -91917,24 +91917,23 @@ const request = require('request');
 const cheerio = require('cheerio');
 
 
-var url2 ='https://medium.com/s/story/dmt-is-the-drug-for-our-collective-crisis-of-meaning-eddbb4bb697c';
+//var url2 ='https://medium.com/s/story/dmt-is-the-drug-for-our-collective-crisis-of-meaning-eddbb4bb697c';
 
 var art =[];
 
-request(url2, function (error, response, html) {
-  if (!error && response.statusCode == 200) {
-    //console.log(html);
-    console.log("running request");
-    var $ = cheerio.load(html);
-    console.log("loading");
-    $("#story, p").each(function(i, elem){//gets the website and adds the article to the art array;
-        art.push($(this).text());
-        //console.log($(this).text());
-    });
-    console.log(art[0]);
-  }//$("h2, div, p")
-});
-
+//request(url2, function (error, response, html) {
+//  if (!error && response.statusCode == 200) {
+//    //console.log(html);
+//    console.log("running request");
+//    var $ = cheerio.load(html);
+//    console.log("loading");
+//    $("#story, p").each(function(i, elem){//gets the website and adds the article to the art array;
+//        art.push($(this).text());
+//        //console.log($(this).text());
+//    });
+//    console.log(art[0]);
+//  }//$("h2, div, p")
+//});
 
 
 //var submitButton = document.getElementById("nameButton");
@@ -91943,6 +91942,7 @@ var automaticButton = document.getElementById("autoButton");
 function getArticle(){
     return art;
 }
+
 
 
 //button for manual author name
@@ -91959,15 +91959,24 @@ function inPageAuthor(){
     //populate array with current active tab
     chrome.tabs.query({"active": true}, function(tabs){
         var currentURL = tabs[0].url; //set as current url of tab
-        //alert(currentURL + "\n\nThis is a new line");
-
-       // var output = getArticle();
+      
         var rating = 0; // integer level of bias
-        var author=  "AuthorWholeName"; //author of webpage
-        //author = getArticle();
-
-       // var art =  getArticle();
-
+        var author=  "temp"; //author of webpage
+       
+        request(currentURL, function (error, response, html) {
+            if (!error && response.statusCode == 200) {
+                //console.log(html);
+                console.log("running request");
+                var $ = cheerio.load(html);
+                console.log("loading");
+                $("#story, p").each(function (i, elem) {//gets the website and adds the article to the art array;
+                    art.push($(this).text());
+                    //console.log($(this).text());
+                });
+                console.log(art[0]);
+            }//$("h2, div, p")
+        });
+       
 
         //proof of concept code - displays data in a new tab
         //chrome.tabs.create({"active": false, "url": "debug.html"});
@@ -92006,6 +92015,7 @@ function inPageAuthor(){
         document.getElementById("link1").innerHTML="Article 1";
         document.getElementById("link2").innerHTML="Article 2";
         document.getElementById("link3").innerHTML="Article 3";
+
 
     }
 );
