@@ -1,27 +1,272 @@
-/*
-console.log("this is temporary code for highlighting keywords on the page");
+/* this code is commented out so that the url error doesn't break anyone elses
+//testing
 
-var numberArray = ["the","and","is","1000","0"];
+console.log("begin highlighting keywords on the page"); //debug
 
-for(i = 0; i < numberArray.length; i++){
-    var replacee = numberArray[i];
-    var re = new RegExp(replacee, "g");
-    var newSpan = '"<span class="highlight-num">'+numberArray[i]+'</span>"';
-    document.body.innerHTML = document.body.innerHTML.replace(re, '"<span class="highlight-num">'+numberArray[i]+'</span>"');
-}
-/*
-numberArray.forEach(changeFunc);
+//set the HTML equal to the HTML of the replace function
+//the replace function simply swaps the word, with the word surrounded by a span tag
+//this allows the highlight css file to highlight all occurences of a word of phrase
+//since they can be identified by the new class highlight of all the created span tags
+document.body.innerHTML = document.body.innerHTML.replace(/gun violence/g, "<span class='highlight'>gun violence</span>");
+//this is simply done for each key word, and is case sensitive
 
-function changeFunc(item){
-    //this is the thing to replace  //what to place instead
-document.body.innerHTML = document.body.innerHTML.replace(/$(item)/g, '"<span class="highlight-num">'+"vagina"+'</span>"');
-}
-  // Without knowing exactly what the page looks like I will just show you
-  // how to highlight just the numbers in question, but you could easily
-  // similarly highlight surrounding text as well
+//Therefore, here are the lower case versions for when the phrases appear in
+//the middle of a sentence
+document.body.innerHTML = document.body.innerHTML.replace(/abortion/g, "<span class='highlight'>abortion</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/affirmative action/g, "<span class='highlight'>affirmative action</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/alternative energy/g, "<span class='highlight'>alternative energy</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/armed teachers/g, "<span class='highlight'>armed teachers</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/bitcoin/g, "<span class='highlight'>bitcoin</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/border security/g, "<span class='highlight'>border security</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/border wall/g, "<span class='highlight'>border wall</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/campaign finance/g, "<span class='highlight'>campaign finance</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/candidate transparency/g, "<span class='highlight'>candidate transparency</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/capital gains tax/g, "<span class='highlight'>capital gains tax</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/china tariffs/g, "<span class='highlight'>china tariffs</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/citizenship test/g, "<span class='highlight'>citizenship test</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/climate change/g, "<span class='highlight'>climate change</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/confederate flag/g, "<span class='highlight'>confederate flag</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/corporate mega mergers/g, "<span class='highlight'>corporate mega mergers</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/corporate tax/g, "<span class='highlight'>corporate tax</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/criminal politicians/g, "<span class='highlight'>criminal politicians</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/cuba/g, "<span class='highlight'>cuba</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/dakota access pipeline/g, "<span class='highlight'>dakota access pipeline</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/death penalty/g, "<span class='highlight'>death penalty</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/deporting criminal immigrants/g, "<span class='highlight'>deporting criminal immigrants</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/domestic jobs/g, "<span class='highlight'>domestic jobs</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/drones/g, "<span class='highlight'>drones</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/drug policy/g, "<span class='highlight'>drug policy</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/drug price regulation/g, "<span class='highlight'>drug price regulation</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/dual citizenship/g, "<span class='highlight'>dual citizenship</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/economic stimulus/g, "<span class='highlight'>economic stimulus</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/edward snowden/g, "<span class='highlight'>edward snowden</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/electoral college/g, "<span class='highlight'>electoral college</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/eminent domain/g, "<span class='highlight'>eminent domain</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/equal pay/g, "<span class='highlight'>equal pay</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/estate tax/g, "<span class='highlight'>estate tax</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/euthanasia/g, "<span class='highlight'>euthanasia</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/farm subsidies/g, "<span class='highlight'>farm subsidies</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/federal reserve/g, "<span class='highlight'>federal reserve</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/first amendment/g, "<span class='highlight'>first amendment</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/flag burning/g, "<span class='highlight'>flag burning</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/foreign aid/g, "<span class='highlight'>foreign aid</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/foreign elections/g, "<span class='highlight'>foreign elections</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/foreign lobbying/g, "<span class='highlight'>foreign lobbying</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/fracking/g, "<span class='highlight'>fracking</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/gmo labels/g, "<span class='highlight'>gmo labels</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/gay marriage/g, "<span class='highlight'>gay marriage</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/gender identity/g, "<span class='highlight'>gender identity</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/gender workplace diversity/g, "<span class='highlight'>gender workplace diversity</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/gerrymandering/g, "<span class='highlight'>gerrymandering</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/government mandates/g, "<span class='highlight'>government mandates</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/government pensions/g, "<span class='highlight'>government pensions</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/government spending/g, "<span class='highlight'>government spending</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/gun control/g, "<span class='highlight'>gun control</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/gun liability/g, "<span class='highlight'>gun liability</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/isis/g, "<span class='highlight'>isis</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/isis ground troops/g, "<span class='highlight'>isis ground troops</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/illegal immigrant detention/g, "<span class='highlight'>illegal immigrant detention</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/immigrant assimilation/g, "<span class='highlight'>immigrant assimilation</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/immigrant children/g, "<span class='highlight'>immigrant children</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/immigrant laborers/g, "<span class='highlight'>immigrant laborers</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/immigration/g, "<span class='highlight'>immigration</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/immigration ban/g, "<span class='highlight'>immigration ban</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/immigration healthcare/g, "<span class='highlight'>immigration healthcare</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/in-state tuition/g, "<span class='highlight'>in-state tuition</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/israel/g, "<span class='highlight'>israel</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/lgbt/g, "<span class='highlight'>lgbt</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/labor unions/g, "<span class='highlight'>labor unions</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/lobbyist/g, "<span class='highlight'>lobbyist</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/mandatory military service/g, "<span class='highlight'>mandatory military service</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/mandatory vaccines/g, "<span class='highlight'>mandatory vaccines</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/marijuana/g, "<span class='highlight'>marijuana</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/medicaid/g, "<span class='highlight'>medicaid</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/medicaid work requirement/g, "<span class='highlight'>medicaid work requirement</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/medicare drug prices/g, "<span class='highlight'>medicare drug prices</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/mental health/g, "<span class='highlight'>mental health</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/military spending/g, "<span class='highlight'>military spending</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/minimum voting age/g, "<span class='highlight'>minimum voting age</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/minimum wage/g, "<span class='highlight'>minimum wage</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/muslim immigrants/g, "<span class='highlight'>muslim immigrants</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/muslim surveillance/g, "<span class='highlight'>muslim surveillance</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/nafta/g, "<span class='highlight'>nafta</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/nato/g, "<span class='highlight'>nato</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/nsa domestic surveillance/g, "<span class='highlight'>nsa domestic surveillance</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/nsa surveillance/g, "<span class='highlight'>nsa surveillance</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/net neutrality/g, "<span class='highlight'>net neutrality</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/niqāb/g, "<span class='highlight'>niqāb</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/no-fly list gun control/g, "<span class='highlight'>no-fly list gun control</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/north korea military strikes/g, "<span class='highlight'>north korea military strikes</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/nuclear energy/g, "<span class='highlight'>nuclear energy</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/obamacare/g, "<span class='highlight'>obamacare</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/offshore banking/g, "<span class='highlight'>offshore banking</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/oil drilling/g, "<span class='highlight'>oil drilling</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/online sales tax/g, "<span class='highlight'>online sales tax</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/overtime pay/g, "<span class='highlight'>overtime pay</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/paid sick leave/g, "<span class='highlight'>paid sick leave</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/patriot act/g, "<span class='highlight'>patriot act</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/pension reform/g, "<span class='highlight'>pension reform</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/plastic product ban/g, "<span class='highlight'>plastic product ban</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/pre-existing conditions/g, "<span class='highlight'>pre-existing conditions</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/property taxes/g, "<span class='highlight'>property taxes</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/religious freedom act/g, "<span class='highlight'>religious freedom act</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/right of foreigners to vote/g, "<span class='highlight'>right of foreigners to vote</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/safe haven/g, "<span class='highlight'>safe haven</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/safe spaces/g, "<span class='highlight'>safe spaces</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/sanctuary cities/g, "<span class='highlight'>sanctuary cities</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/single-payer healthcare/g, "<span class='highlight'>single-payer healthcare</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/skilled immigrants/g, "<span class='highlight'>skilled immigrants</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/social media regulation/g, "<span class='highlight'>social media regulation</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/social security/g, "<span class='highlight'>social security</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/space exploration/g, "<span class='highlight'>space exploration</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/syrian refugees/g, "<span class='highlight'>syrian refugees</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/tariffs/g, "<span class='highlight'>tariffs</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/taxes/g, "<span class='highlight'>taxes</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/term limits/g, "<span class='highlight'>term limits</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/terrorism/g, "<span class='highlight'>terrorism</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/torture/g, "<span class='highlight'>torture</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/ukraine/g, "<span class='highlight'>ukraine</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/united nations/g, "<span class='highlight'>united nations</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/universal basic income/g, "<span class='highlight'>universal basic income</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/va privatization/g, "<span class='highlight'>va privatization</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/voter fraud/g, "<span class='highlight'>voter fraud</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/war on isis/g, "<span class='highlight'>war on isis</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/welfare/g, "<span class='highlight'>welfare</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/welfare drug testing/g, "<span class='highlight'>welfare drug testing</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/whistleblower protection/g, "<span class='highlight'>whistleblower protection</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/women in combat/g, "<span class='highlight'>women in combat</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/yemen/g, "<span class='highlight'>yemen</span>");
+
+//and here are the upper case versions for when the phrase/word appears in a heading
+document.body.innerHTML = document.body.innerHTML.replace(/Abortion/g, "<span class='highlight'>Abortion</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Affirmative Action/g, "<span class='highlight'>Affirmative Action</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Alternative Energy/g, "<span class='highlight'>Alternative Energy</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Armed Teachers/g, "<span class='highlight'>Armed Teachers</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Bitcoin/g, "<span class='highlight'>Bitcoin</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Border Security/g, "<span class='highlight'>Border Security</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Border Wall/g, "<span class='highlight'>Border Wall</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Campaign Finance/g, "<span class='highlight'>Campaign Finance</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Candidate Transparency/g, "<span class='highlight'>Candidate Transparency</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Capital Gains Tax/g, "<span class='highlight'>Capital Gains Tax</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/China Tariffs/g, "<span class='highlight'>China Tariffs</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Citizenship Test/g, "<span class='highlight'>Citizenship Test</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Climate Change/g, "<span class='highlight'>Climate Change</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Confederate Flag/g, "<span class='highlight'>Confederate Flag</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Corporate Mega Mergers/g, "<span class='highlight'>Corporate Mega Mergers</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Corporate Tax/g, "<span class='highlight'>Corporate Tax</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Criminal Politicians/g, "<span class='highlight'>Criminal Politicians</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Cuba/g, "<span class='highlight'>Cuba</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Dakota Access Pipeline/g, "<span class='highlight'>Dakota Access Pipeline</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Death Penalty/g, "<span class='highlight'>Death Penalty</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Deporting Criminal Immigrants/g, "<span class='highlight'>Deporting Criminal Immigrants</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Domestic Jobs/g, "<span class='highlight'>Domestic Jobs</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Drones/g, "<span class='highlight'>Drones</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Drug Policy/g, "<span class='highlight'>Drug Policy</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Drug Price Regulation/g, "<span class='highlight'>Drug Price Regulation</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Dual Citizenship/g, "<span class='highlight'>Dual Citizenship</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Economic Stimulus/g, "<span class='highlight'>Economic Stimulus</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Edward Snowden/g, "<span class='highlight'>Edward Snowden</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Electoral College/g, "<span class='highlight'>Electoral College</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Eminent Domain/g, "<span class='highlight'>Eminent Domain</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Equal pay/g, "<span class='highlight'>Equal pay</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Estate Tax/g, "<span class='highlight'>Estate Tax</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Euthanasia/g, "<span class='highlight'>Euthanasia</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Farm Subsidies/g, "<span class='highlight'>Farm Subsidies</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Federal Reserve/g, "<span class='highlight'>Federal Reserve</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/First Amendment/g, "<span class='highlight'>First Amendment</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Flag Burning/g, "<span class='highlight'>Flag Burning</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Foreign Aid/g, "<span class='highlight'>Foreign Aid</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Foreign Elections/g, "<span class='highlight'>Foreign Elections</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Foreign Lobbying/g, "<span class='highlight'>Foreign Lobbying</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Fracking/g, "<span class='highlight'>Fracking</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/GMO Labels/g, "<span class='highlight'>GMO Labels</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Gay Marriage/g, "<span class='highlight'>Gay Marriage</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Gender Identity/g, "<span class='highlight'>Gender Identity</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Gender Workplace Diversity/g, "<span class='highlight'>Gender Workplace Diversity</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Gerrymandering/g, "<span class='highlight'>Gerrymandering</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Government Mandates/g, "<span class='highlight'>Government Mandates</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Government Pensions/g, "<span class='highlight'>Government Pensions</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Government Spending/g, "<span class='highlight'>Government Spending</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Gun Control/g, "<span class='highlight'>Gun Control</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Gun Liability/g, "<span class='highlight'>Gun Liability</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/ISIS/g, "<span class='highlight'>ISIS</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/ISIS Ground Troops/g, "<span class='highlight'>ISIS Ground Troops</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Illegal Immigrant Detention/g, "<span class='highlight'>Illegal Immigrant Detention</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Immigrant Assimilation/g, "<span class='highlight'>Immigrant Assimilation</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Immigrant Children/g, "<span class='highlight'>Immigrant Children</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Immigrant Laborers/g, "<span class='highlight'>Immigrant Laborers</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Immigration/g, "<span class='highlight'>Immigration</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Immigration Ban/g, "<span class='highlight'>Immigration Ban</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Immigration Healthcare/g, "<span class='highlight'>Immigration Healthcare</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/In-State Tuition/g, "<span class='highlight'>In-State Tuition</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Israel/g, "<span class='highlight'>Israel</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/LGBT/g, "<span class='highlight'>LGBT</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Labor Unions/g, "<span class='highlight'>Labor Unions</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Lobbyist/g, "<span class='highlight'>Lobbyist</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Mandatory Military Service/g, "<span class='highlight'>Mandatory Military Service</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Mandatory Vaccines/g, "<span class='highlight'>Mandatory Vaccines</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Marijuana/g, "<span class='highlight'>Marijuana</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Medicaid/g, "<span class='highlight'>Medicaid</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Medicaid Work Requirement/g, "<span class='highlight'>Medicaid Work Requirement</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Medicare Drug Prices/g, "<span class='highlight'>Medicare Drug Prices</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Mental Health/g, "<span class='highlight'>Mental Health</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Military Spending/g, "<span class='highlight'>Military Spending</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Minimum Voting Age/g, "<span class='highlight'>Minimum Voting Age</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Minimum Wage/g, "<span class='highlight'>Minimum Wage</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Muslim Immigrants/g, "<span class='highlight'>Muslim Immigrants</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Muslim Surveillance/g, "<span class='highlight'>Muslim Surveillance</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/NAFTA/g, "<span class='highlight'>NAFTA</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/NATO/g, "<span class='highlight'>NATO</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/NSA Domestic Surveillance/g, "<span class='highlight'>NSA Domestic Surveillance</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/NSA Surveillance/g, "<span class='highlight'>NSA Surveillance</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Net Neutrality/g, "<span class='highlight'>Net Neutrality</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Niqāb/g, "<span class='highlight'>Niqāb</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/No-Fly List Gun Control/g, "<span class='highlight'>No-Fly List Gun Control</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/North Korea Military Strikes/g, "<span class='highlight'>North Korea Military Strikes</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Nuclear Energy/g, "<span class='highlight'>Nuclear Energy</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Obamacare/g, "<span class='highlight'>Obamacare</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Offshore Banking/g, "<span class='highlight'>Offshore Banking</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Oil Drilling/g, "<span class='highlight'>Oil Drilling</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Online Sales Tax/g, "<span class='highlight'>Online Sales Tax</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Overtime Pay/g, "<span class='highlight'>Overtime Pay</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Paid Sick Leave/g, "<span class='highlight'>Paid Sick Leave</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Patriot Act/g, "<span class='highlight'>Patriot Act</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Pension Reform/g, "<span class='highlight'>Pension Reform</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Plastic Product Ban/g, "<span class='highlight'>Plastic Product Ban</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Pre-Existing Conditions/g, "<span class='highlight'>Pre-Existing Conditions</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Property Taxes/g, "<span class='highlight'>Property Taxes</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Religious Freedom Act/g, "<span class='highlight'>Religious Freedom Act</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Right of Foreigners to Vote/g, "<span class='highlight'>Right of Foreigners to Vote</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Safe Haven/g, "<span class='highlight'>Safe Haven</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Safe Spaces/g, "<span class='highlight'>Safe Spaces</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Sanctuary Cities/g, "<span class='highlight'>Sanctuary Cities</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/School Shooting/g, "<span class='highlight'>School Shooting</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Single-Payer Healthcare/g, "<span class='highlight'>Single-Payer Healthcare</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Skilled Immigrants/g, "<span class='highlight'>Skilled Immigrants</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Social Media Regulation/g, "<span class='highlight'>Social Media Regulation</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Social Security/g, "<span class='highlight'>Social Security</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Space Exploration/g, "<span class='highlight'>Space Exploration</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Syrian Refugees/g, "<span class='highlight'>Syrian Refugees</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Tariffs/g, "<span class='highlight'>Tariffs</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Taxes/g, "<span class='highlight'>Taxes</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Term Limits/g, "<span class='highlight'>Term Limits</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Terrorism/g, "<span class='highlight'>Terrorism</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Torture/g, "<span class='highlight'>Torture</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Ukraine/g, "<span class='highlight'>Ukraine</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/United Nations/g, "<span class='highlight'>United Nations</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Universal Basic Income/g, "<span class='highlight'>Universal Basic Income</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/VA Privatization/g, "<span class='highlight'>VA Privatization</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Voter Fraud/g, "<span class='highlight'>Voter Fraud</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/War on ISIS/g, "<span class='highlight'>War on ISIS</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Welfare/g, "<span class='highlight'>Welfare</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Welfare Drug Testing/g, "<span class='highlight'>Welfare Drug Testing</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Whistleblower Protection/g, "<span class='highlight'>Whistleblower Protection</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Women in combat/g, "<span class='highlight'>Women in combat</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Yemen/g, "<span class='highlight'>Yemen</span>");
+document.body.innerHTML = document.body.innerHTML.replace(/Violence/g, "<span class='highlight'>Violence</span>");
+console.log(document.body.innerHTML); //debug
+
+//<span class='highlight-num'>gun</span>
 */
 
-
-/*
-console.log("this is end of content script");
-*/
+console.log("this is end of the content script"); //debug
