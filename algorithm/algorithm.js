@@ -1,26 +1,27 @@
 function msg() {
         alert("test javascript");
 }
-function parse(web_scraper variable){
-	var x =  getArticle();
-	var string_array = x.split(' '); // breaks each individual word up by whitespace and stores them into array
-	var y = string_array.length - 1;
-	var i = 0;
-	
-	while( i < y){
-		var samplestr = string_Array[i];
-		if(samplestr[samplestr.length - 1] == "?"){
-			string_array[i] = samplestr.substr(0, samplestr.length - 1); // if the string contains a question mark, it will be removed for accurate comparison of keyword
-		}
-		if(samplestr[samplestr.length - 1] == "."){
+
+function parse(web_scraper variable) {
+        var x = getArticle();
+        var string_array = x.split(' '); // breaks each individual word up by whitespace and stores them into array
+        var y = string_array.length - 1;
+        var i = 0;
+
+        while (i < y) {
+                var samplestr = string_Array[i];
+                if (samplestr[samplestr.length - 1] == "?") {
+                        string_array[i] = samplestr.substr(0, samplestr.length - 1); // if the string contains a question mark, it will be removed for accurate comparison of keyword
+                }
+                if (samplestr[samplestr.length - 1] == ".") {
                         string_array[i] = samplestr.substr(0, samplestr.length - 1); // if the string contains a period, it will be removed for accurate comparison of keyword
                 }
-		if(samplestr[samplestr.length - 1] == ","){
+                if (samplestr[samplestr.length - 1] == ",") {
                         string_array[i] = samplestr.substr(0, samplestr.length - 1); // if the string contains a comma, it will be removed for accurate comparison of keyword
                 }
-		i++;
-	}
-	return string_array;
+                i++;
+        }
+        return string_array;
 
 }
 
@@ -299,8 +300,6 @@ function numberOf(word) {
         return count;
 
 }
-
-
 
 
 
