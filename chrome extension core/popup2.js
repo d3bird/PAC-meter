@@ -92045,15 +92045,40 @@ var keywords = ["Abortion",
 var art =[];
 
 function getBais() {
-    var output = 0;
+    var output = 0;// the score
     var words;
     for (var i = 0; i < art.length; i++) {//loops through each readible paragraph
-        try {
+        try {//
             words = art[i].split(" ");
             for (var q = 0; q < words.length; q++) {//loops through each word
                 for (var x = 0; x < keywords.length; x++) {//loops through all keywords
-                    if (words[q].toLowerCase() == keywords[x].toLowerCase()) {
-                       // console.log(words[q].toLowerCase() +" "+ keywords[x].toLowerCase());
+
+                    //check if word has punucaion
+                    var temp;
+
+
+                    //check if keyword
+
+                    if (keywords[x].indexOf(" ") == -1) {//checking to see if the keywords has multi words
+                        var temp2 = keywords[x].split(" ");//splits the kewords into an array of words
+                        for (var t = 0; t < temp2.length; t++) {
+
+                        }
+
+
+                    } else {//the keyword is one word
+
+
+                    }
+                    //if yes get the previous sentece
+
+                    //try to score the context
+
+                    //increase or decease output
+
+                    if (words[q].toLowerCase() == keywords[x].toLowerCase()) {//counts the number of keywors found
+                       // console.log(words[q].toLowerCase() +" "+ keywords[x].toLowerCase())
+
                         output++;
                     }
                 }
