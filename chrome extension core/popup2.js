@@ -92087,10 +92087,15 @@ function getBais() {
                         }
                     } else {// if there are more spaces
                         var key = keywords[x].split(" ");
+                        var found = false;
                         for (var e = 0; e < key.length; e++) {//checks multiword key words
-                            tempParse = words[q].toLowerCase();
+                            tempParse = words[q + e].toLowerCase();
                             tempParse = removePunctation();//removes any punctiation from the word in question
+                            if (tempParse == key[e].toLowerCase()) {
 
+                            } else {
+                                break;
+                            }
                         }
                     }
                     

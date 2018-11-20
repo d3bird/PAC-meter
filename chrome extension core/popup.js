@@ -169,27 +169,30 @@ function getBais() {
 
                         if (tempParse == keywords[x].toLowerCase()) {// if the word matchs the keyword
                             console.log(words[q].toLowerCase() + " " + keywords[x].toLowerCase());
-                            //input the main algorithm here
+                            //input the main algorithm here for single word
+
                             output++;
 
                         }
                     } else {// if there are more spaces
                         var key = keywords[x].split(" ");
-                        var found = false;
+                        var found = true;
                         for (var e = 0; e < key.length; e++) {//checks multiword key words
                             tempParse = words[q + e].toLowerCase();
                             tempParse = removePunctation();//removes any punctiation from the word in question
                             if (tempParse == key[e].toLowerCase()) {
 
                             } else {
+                                found = false;
                                 break;
                             }
                         }
-                    }
-                    
-                 
-
-                   
+                        if (found) {
+                            //for multiwords should go here
+                            output++;
+                        }
+                    }       
+         
                 }
             }
         } catch (err) {
@@ -313,7 +316,7 @@ function inPageAuthor(){
         var url3;
 
         //code to set each of the article links
-
+        
         //link elements to other pages
         var link1 = document.getElementById("link1");
         link1.setAttribute('href', url1)
