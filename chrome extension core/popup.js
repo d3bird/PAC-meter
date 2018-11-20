@@ -46,6 +46,7 @@ var keywords = ["Abortion",
     "Foreign Elections",
     "Foreign Lobbying",
     "Fracking",
+    "gun control",
     "GMO Labels",
     "Gay Marriage",
     "Gender Identity",
@@ -138,24 +139,6 @@ var art =[];
 
 var tempParse;
 
-function removePunctation() {
-    var output = tempParse;
-    if (tempParse.indexOf(".") == -1) {
-
-    }
-    if (tempParse.indexOf(",") == -1) {
-
-    }
-    if (tempParse.indexOf("?") == -1) {
-
-    }
-    if (tempParse.indexOf("!") == -1) {
-
-    }
-
-    return output;
-}
-
 function getBais() {
     var output = 0;// the score
     var words;
@@ -167,10 +150,10 @@ function getBais() {
                 for (var x = 0; x < keywords.length; x++) {//loops through all keywords
 
                     //check for multiple keywords
-
-                    if (keywords[x].indexOf(" ") == -1) {// if there is no spaces
                         tempParse = words[q].toLowerCase();
-                        tempParse = removePunctation();//removes any punctiation from the word in question
+                       // tempParse = removePunctation();//removes any punctiation from the word in question
+                    if (keywords[x].indexOf(" ") == -1) {// if there is no spaces
+                        
 
                         if (tempParse == keywords[x].toLowerCase()) {// if the word matchs the keyword
                             console.log(words[q].toLowerCase());// + " " + keywords[x].toLowerCase());
@@ -180,13 +163,43 @@ function getBais() {
 
                         }
                     } else {// if there are more spaces
+                        //console.log("next keyword has spaces : " + keywords[x]);
+
                         var key = keywords[x].split(" ");
+                        var index = 0;
+                        var running = true;
+                        /*while (running) {
+                            if (words[q+index].toLowerCase() == key[index].toLowerCase()) {
+                                console.log("found at index " + index + "   " + key[index].toLowerCase());
+                                index++;
+                                if (index >= key.length) {
+                                    console.log("found compleate phrase");
+                                    output++;
+                                    running = false;
+                                } else {
+                                    console.log("match did not work");
+                                    running = false;
+                                }
+                            }
+
+                        }*/
+
+                        
+
+                        //for (var e = 0; e < key.length; e++) {
+                            
+
+                         
+                       // }
+
+                        //old non-working code
+                        /*var key = keywords[x].split(" ");
                         var found = true;
                         for (var e = 0; e < key.length; e++) {//checks multiword key words
                             tempParse = words[q + e].toLowerCase();
                             tempParse = removePunctation();//removes any punctiation from the word in question
                             if (tempParse == key[e].toLowerCase()) {
-
+                                console.log("partial word was found");
                             } else {
                                 found = false;
                                 break;
@@ -195,7 +208,7 @@ function getBais() {
                         if (found) {
                             //for multiwords should go here
                             output++;
-                        }
+                        }*/
                     }       
          
                 }
@@ -204,7 +217,7 @@ function getBais() {
             //console.log("could not convert part of article");
         }
     }
-   // console.log("number of political words = " + output);
+    console.log("finnished finding buzzwords");
     return output;
 }
 
