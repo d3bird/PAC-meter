@@ -92044,6 +92044,26 @@ var keywords = ["Abortion",
 
 var art =[];
 
+var tempParse;
+
+function removePunctation() {
+    var output = tempParse;
+    if (tempParse.indexOf(".") == -1) {
+
+    }
+    if (tempParse.indexOf(",") == -1) {
+
+    }
+    if (tempParse.indexOf("?") == -1) {
+
+    }
+    if (tempParse.indexOf("!") == -1) {
+
+    }
+
+    return output;
+}
+
 function getBais() {
     var output = 0;// the score
     var words;
@@ -92053,34 +92073,30 @@ function getBais() {
             for (var q = 0; q < words.length; q++) {//loops through each word
                 for (var x = 0; x < keywords.length; x++) {//loops through all keywords
 
-                    //check if word has punucaion
-                    var temp;
+                    //check for multiple keywords
 
+                    if (keywords[x].indexOf(" ") == -1) {// if there is no spaces
+                        tempParse = words[q].toLowerCase();
+                        tempParse = removePunctation();//removes any punctiation from the word in question
 
-                    //check if keyword
-                   
-                    if (keywords[x].indexOf(" ") == -1) {//checking to see if the keywords has multi words
-                        var temp2 = keywords[x].split(" ");//splits the kewords into an array of words
-                        for (var t = 0; t < temp2.length; t++) {
+                        if (tempParse == keywords[x].toLowerCase()) {// if the word matchs the keyword
+                            console.log(words[q].toLowerCase() + " " + keywords[x].toLowerCase());
+                            //input the main algorithm here
+                            output++;
 
                         }
+                    } else {// if there are more spaces
+                        var key = keywords[x].split(" ");
+                        for (var e = 0; e < key.length; e++) {//checks multiword key words
+                            tempParse = words[q].toLowerCase();
+                            tempParse = removePunctation();//removes any punctiation from the word in question
 
-
-                    } else {//the keyword is one word
-
-
+                        }
                     }
-                    //if yes get the previous sentece
+                    
+                 
 
-                    //try to score the context
-
-                    //increase or decease output
-
-                    if (words[q].toLowerCase() == keywords[x].toLowerCase()) {//counts the number of keywors found
-                       // console.log(words[q].toLowerCase() +" "+ keywords[x].toLowerCase())
-
-                        output++;
-                    }
+                   
                 }
             }
         } catch (err) {
