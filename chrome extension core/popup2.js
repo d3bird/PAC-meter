@@ -92058,7 +92058,7 @@ function getBais() {
 
 
                     //check if keyword
-
+                   
                     if (keywords[x].indexOf(" ") == -1) {//checking to see if the keywords has multi words
                         var temp2 = keywords[x].split(" ");//splits the kewords into an array of words
                         for (var t = 0; t < temp2.length; t++) {
@@ -92169,6 +92169,7 @@ function inPageAuthor(){
                     console.log($(this).text());
                     console.log();
                 });*/
+
                 //new way  of getting the article
 
              //   console.log("the article was created by");
