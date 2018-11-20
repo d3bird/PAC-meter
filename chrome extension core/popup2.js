@@ -91920,6 +91920,7 @@ var keywords = ["Abortion",
     "Affirmative Action",
     "Alternative Energy",
     "Armed Teachers",
+    "anti-Muslim",
     "Bitcoin",
     "Border Security",
     "Border Wall",
@@ -91998,7 +91999,6 @@ var keywords = ["Abortion",
     "NSA Domestic Surveillance",
     "NSA Surveillance",
     "Net Neutrality",
-    "Niqab",
     "No-Fly List Gun Control",
     "North Korea Military Strikes",
     "Nuclear Energy",
@@ -92013,6 +92013,7 @@ var keywords = ["Abortion",
     "Plastic Product Ban",
     "Pre-Existing Conditions",
     "Property Taxes",
+    "religious freedom",
     "Religious Freedom Act",
     "Right of Foreigners to Vote",
     "Safe Haven",
@@ -92029,6 +92030,9 @@ var keywords = ["Abortion",
     "Term Limits",
     "Terrorism",
     "Torture",
+    "Muslims",
+    "Muslim",
+    "Muslim ban",
     "Ukraine",
     "United Nations",
     "Universal Basic Income",
@@ -92067,6 +92071,7 @@ function removePunctation() {
 function getBais() {
     var output = 0;// the score
     var words;
+    console.log("searching for pollitical buzz words");
     for (var i = 0; i < art.length; i++) {//loops through each readible paragraph
         try {//
             words = art[i].split(" ");
@@ -92080,28 +92085,31 @@ function getBais() {
                         tempParse = removePunctation();//removes any punctiation from the word in question
 
                         if (tempParse == keywords[x].toLowerCase()) {// if the word matchs the keyword
-                            console.log(words[q].toLowerCase() + " " + keywords[x].toLowerCase());
-                            //input the main algorithm here
+                            console.log(words[q].toLowerCase());// + " " + keywords[x].toLowerCase());
+                            //input the main algorithm here for single word
+
                             output++;
 
                         }
                     } else {// if there are more spaces
                         var key = keywords[x].split(" ");
-                        var found = false;
+                        var found = true;
                         for (var e = 0; e < key.length; e++) {//checks multiword key words
                             tempParse = words[q + e].toLowerCase();
                             tempParse = removePunctation();//removes any punctiation from the word in question
                             if (tempParse == key[e].toLowerCase()) {
 
                             } else {
+                                found = false;
                                 break;
                             }
                         }
-                    }
-                    
-                 
-
-                   
+                        if (found) {
+                            //for multiwords should go here
+                            output++;
+                        }
+                    }       
+         
                 }
             }
         } catch (err) {
@@ -92225,7 +92233,7 @@ function inPageAuthor(){
         var url3;
 
         //code to set each of the article links
-
+        
         //link elements to other pages
         var link1 = document.getElementById("link1");
         link1.setAttribute('href', url1)
