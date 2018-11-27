@@ -296,25 +296,26 @@ function getBais() {
 
                                                 var wOfw = keywords[x].split(" "); //split into an array of words
                                                 var len = wOfw.length - 1; //length of the array
-                                                var temp_str = tempParse + " "; //for use to reconstruct the string
 
-                                                var match = true; //
+                                                var match = true; //if the multiword 100% matches
 
-
+                                                //check to see if the first word in the multiword matches, see if the rest do
                                                 if (wOfw[0].toLowerCase() == tempParse) {
 
-                                                        for (var y = 1; y < len; ++y) {
+                                                        for (var y = 1; y < len; ++y) { //go through the multiword
+                                                                //if the keyword doesn't match the next word in the article match = false
                                                                 if (wOfw[y].toLowerCase() != removePunctuation(words[q + y].toLowerCase())) {
                                                                         match = false;
                                                                 }
                                                         }
 
-                                                } else {
+                                                } else { //otherwise it cant match
                                                         match = false;
                                                 }
 
+                                                //if its a match we need to add it to either dscore, rscore, or just to the total
                                                 if (match) {
-                                                        var temp = dscore;
+                                                        var temp = dscore; //same as the single case at this point
 
                                                         for (var z = 0; z < (dwords.length - 1); ++z) {
                                                                 if (words[x] == dwords[z].toLowerCase()) { //seeing if the keyword is a dem word
@@ -391,11 +392,14 @@ function getBais() {
         }
         console.log("finnished finding buzzwords");
 
+        //now we have all of the keywords from the article logged, we can use the
+        //values to construct a value
         //calculate: 0 is the middle, -100 is max_dem, 100 is max_repub
-        if (total != 0) {
+        if (total != 0) { //have to check for tricky articles with 0 buzzwords
                 var final_score = ((rscore - dscore) / total) * 100;
 
                 return final_score;
+
         } else {
                 return 0;
         }
