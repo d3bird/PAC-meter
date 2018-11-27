@@ -205,31 +205,90 @@ var rwords = ["Armed Teachers",
         "Welfare Drug Testing",
 ];
 
+var negations = ["barely",
+        "can't",
+        "couldn't",
+        "doesn't",
+        "don't",
+        "hardly",
+        "isn't",
+        "neither",
+        "never",
+        "no",
+        "nobody",
+        "none",
+        "not",
+        "nothing",
+        "nowhere",
+        "scarcely",
+        "shouldn't",
+        "wasn't",
+        "won't",
+        "wouldn't"
+]
+
+function removePunctuation(word) {
+
+        var n = word.length - 1; //only checking for punctuation at the end of the word
+
+        //common punctuation
+        if (word[n] == '.' || word[n] == '?' || word[n] == ',' || word[n] == '!') {
+                word = word.substr(0, n - 1); //parse the last character off
+        }
+
+        return word; //return the word
+
+}
+
 var art = [];
 
 var tempParse;
 
 function getBais() {
-        var output = 0; // the score
+        var total = 0; // the score
+        var rscore = 0; // republican score
+        var dscore = 0; // democrat score
+
         var words;
+
         console.log("searching for pollitical buzz words");
+
         for (var i = 0; i < art.length; i++) { //loops through each readible paragraph
-                try { //
+                try {
                         words = art[i].split(" ");
+
                         for (var q = 0; q < words.length; q++) { //loops through each word
                                 for (var x = 0; x < keywords.length; x++) { //loops through all keywords
 
                                         //check for multiple keywords
                                         tempParse = words[q].toLowerCase();
-                                        // tempParse = removePunctation();//removes any punctiation from the word in question
+
+                                        //removes any punctiation from the word in question (implemented)
+                                        tempParse = removePunctuation(tempParse);
+
                                         if (keywords[x].indexOf(" ") == -1) { // if there is no spaces
 
-
                                                 if (tempParse == keywords[x].toLowerCase()) { // if the word matchs the keyword
-                                                        console.log(words[q].toLowerCase()); // + " " + keywords[x].toLowerCase());
-                                                        //input the main algorithm here for single word
+                                                        console.log(words[q].toLowerCase());
 
-                                                        output++;
+                                                        var temp = dscore; //going to use an if statment to save a search
+                                                        //if we find a dword
+
+                                                        for (var z = 0; z < dwords.length; ++z) {
+                                                                if (tempParse == dwords[z]) { //seeing if the keyword is a dem word
+                                                                        dscore++; //increase our democrat score
+                                                                }
+                                                        }
+
+                                                        if (temp == dscore) { //skip if it was found in the dem list
+                                                                for (var z = 0; z < rwords.length; ++z) {
+                                                                        if (tempParse == rwords[z]) {
+                                                                                rscore++; //increase our republican score
+                                                                        }
+                                                                }
+                                                        }
+
+                                                        total++;
 
                                                 }
                                         } else { // if there are more spaces
@@ -244,7 +303,7 @@ function getBais() {
                                                         index++;
                                                         if (index >= key.length) {
                                                             console.log("found compleate phrase");
-                                                            output++;
+                                                            total++;
                                                             running = false;
                                                         } else {
                                                             console.log("match did not work");
@@ -277,7 +336,7 @@ function getBais() {
                                                 }
                                                 if (found) {
                                                     //for multiwords should go here
-                                                    output++;
+                                                    total++;
                                                 }*/
                                         }
 
@@ -288,7 +347,10 @@ function getBais() {
                 }
         }
         console.log("finnished finding buzzwords");
-        return output;
+
+        //returning the entire array of variables for score;
+        var score_array = [dscore, rscore, total];
+        return score_array;
 }
 
 
