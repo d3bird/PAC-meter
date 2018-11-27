@@ -253,36 +253,36 @@ function getBais() {
 
         console.log("searching for pollitical buzz words");
 
-        for (var i = 0; i < art.length; i++) { //loops through each readible paragraph
+        for (var i = 0; i < (art.length - 1); i++) { //loops through each readible paragraph
                 try {
                         words = art[i].split(" ");
 
-                        for (var q = 0; q < words.length; q++) { //loops through each word
-                                for (var x = 0; x < keywords.length; x++) { //loops through all keywords
+                        for (var q = 0; q < (words.length - 1); q++) { //loops through each word
+                                //make sure the word is lowercase
+                                tempParse = words[q].toLowerCase();
 
-                                        //check for multiple keywords
-                                        tempParse = words[q].toLowerCase();
+                                //removes any punctiation from the word in question (implemented)
+                                tempParse = removePunctuation(tempParse);
 
-                                        //removes any punctiation from the word in question (implemented)
-                                        tempParse = removePunctuation(tempParse);
+                                for (var x = 0; x < (keywords.length - 1); x++) { //loops through all keywords
 
                                         if (keywords[x].indexOf(" ") == -1) { // if there is no spaces
 
                                                 if (tempParse == keywords[x].toLowerCase()) { // if the word matchs the keyword
                                                         console.log(words[q].toLowerCase());
 
-                                                        var temp = dscore; //going to use an if statment to save a search
-                                                        //if we find a dword
+                                                        //going to use an if statment to save a search if we find a dword
+                                                        var temp = dscore;
 
-                                                        for (var z = 0; z < dwords.length; ++z) {
-                                                                if (tempParse == dwords[z]) { //seeing if the keyword is a dem word
+                                                        for (var z = 0; z < (dwords.length - 1); ++z) {
+                                                                if (tempParse == dwords[z].toLowerCase()) { //seeing if the keyword is a dem word
                                                                         dscore++; //increase our democrat score
                                                                 }
                                                         }
-
-                                                        if (temp == dscore) { //skip if it was found in the dem list
-                                                                for (var z = 0; z < rwords.length; ++z) {
-                                                                        if (tempParse == rwords[z]) {
+                                                        //skip if it was found in the dem list ie. dscore > temp
+                                                        if (temp == dscore) {
+                                                                for (var z = 0; z < (rwords.length - 1); ++z) {
+                                                                        if (tempParse == rwords[z].toLowerCase()) {
                                                                                 rscore++; //increase our republican score
                                                                         }
                                                                 }
@@ -294,10 +294,53 @@ function getBais() {
                                         } else { // if there are more spaces
                                                 //console.log("next keyword has spaces : " + keywords[x]);
 
+                                                var wOfw = keywords[x].split(" "); //split into an array of words
+                                                var len = wOfw.length - 1; //length of the array
+                                                var temp_str = tempParse + " "; //for use to reconstruct the string
+
+                                                var match = true; //
+
+
+                                                if (wOfw[0].toLowerCase() == tempParse) {
+
+                                                        for (var y = 1; y < len; ++y) {
+                                                                if (wOfw[y].toLowerCase() != removePunctuation(words[q + y].toLowerCase())) {
+                                                                        match = false;
+                                                                }
+                                                        }
+
+                                                } else {
+                                                        match = false;
+                                                }
+
+                                                if (match) {
+                                                        var temp = dscore;
+
+                                                        for (var z = 0; z < (dwords.length - 1); ++z) {
+                                                                if (words[x] == dwords[z].toLowerCase()) { //seeing if the keyword is a dem word
+                                                                        dscore++; //increase our democrat score
+                                                                }
+                                                        }
+
+                                                        if (temp == dscore) {
+                                                                for (var z = 0; z < (rwords.length - 1); ++z) {
+                                                                        if (words[x] == rwords[z].toLowerCase()) {
+                                                                                rscore++; //increase our republican score
+                                                                        }
+                                                                }
+                                                        }
+
+                                                        total++;
+                                                }
+
+
+
+
+                                                /*
                                                 var key = keywords[x].split(" ");
                                                 var index = 0;
                                                 var running = true;
-                                                /*while (running) {
+                                                while (running) {
                                                     if (words[q+index].toLowerCase() == key[index].toLowerCase()) {
                                                         console.log("found at index " + index + "   " + key[index].toLowerCase());
                                                         index++;
@@ -348,9 +391,14 @@ function getBais() {
         }
         console.log("finnished finding buzzwords");
 
-        //returning the entire array of variables for score;
-        var score_array = [dscore, rscore, total];
-        return score_array;
+        //calculate: 0 is the middle, -100 is max_dem, 100 is max_repub
+        if (total != 0) {
+                var final_score = ((rscore - dscore) / total) * 100;
+
+                return final_score;
+        } else {
+                return 0;
+        }
 }
 
 
