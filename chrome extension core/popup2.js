@@ -91920,6 +91920,7 @@ var keywords = ["Abortion",
     "Affirmative Action",
     "Alternative Energy",
     "Armed Teachers",
+    "anti-Muslim",
     "Bitcoin",
     "Border Security",
     "Border Wall",
@@ -91957,6 +91958,7 @@ var keywords = ["Abortion",
     "Foreign Elections",
     "Foreign Lobbying",
     "Fracking",
+    "gun control",
     "GMO Labels",
     "Gay Marriage",
     "Gender Identity",
@@ -91998,7 +92000,6 @@ var keywords = ["Abortion",
     "NSA Domestic Surveillance",
     "NSA Surveillance",
     "Net Neutrality",
-    "Niqab",
     "No-Fly List Gun Control",
     "North Korea Military Strikes",
     "Nuclear Energy",
@@ -92013,6 +92014,7 @@ var keywords = ["Abortion",
     "Plastic Product Ban",
     "Pre-Existing Conditions",
     "Property Taxes",
+    "religious freedom",
     "Religious Freedom Act",
     "Right of Foreigners to Vote",
     "Safe Haven",
@@ -92029,6 +92031,9 @@ var keywords = ["Abortion",
     "Term Limits",
     "Terrorism",
     "Torture",
+    "Muslims",
+    "Muslim",
+    "Muslim ban",
     "Ukraine",
     "United Nations",
     "Universal Basic Income",
@@ -92044,50 +92049,87 @@ var keywords = ["Abortion",
 
 var art =[];
 
+var tempParse;
+
 function getBais() {
     var output = 0;// the score
     var words;
+    console.log("searching for pollitical buzz words");
     for (var i = 0; i < art.length; i++) {//loops through each readible paragraph
         try {//
             words = art[i].split(" ");
             for (var q = 0; q < words.length; q++) {//loops through each word
                 for (var x = 0; x < keywords.length; x++) {//loops through all keywords
 
-                    //check if word has punucaion
-                    var temp;
+                    //check for multiple keywords
+                        tempParse = words[q].toLowerCase();
+                       // tempParse = removePunctation();//removes any punctiation from the word in question
+                    if (keywords[x].indexOf(" ") == -1) {// if there is no spaces
+                        
 
+                        if (tempParse == keywords[x].toLowerCase()) {// if the word matchs the keyword
+                            console.log(words[q].toLowerCase());// + " " + keywords[x].toLowerCase());
+                            //input the main algorithm here for single word
 
-                    //check if keyword
-                   
-                    if (keywords[x].indexOf(" ") == -1) {//checking to see if the keywords has multi words
-                        var temp2 = keywords[x].split(" ");//splits the kewords into an array of words
-                        for (var t = 0; t < temp2.length; t++) {
+                            output++;
 
                         }
+                    } else {// if there are more spaces
+                        //console.log("next keyword has spaces : " + keywords[x]);
 
+                        var key = keywords[x].split(" ");
+                        var index = 0;
+                        var running = true;
+                        /*while (running) {
+                            if (words[q+index].toLowerCase() == key[index].toLowerCase()) {
+                                console.log("found at index " + index + "   " + key[index].toLowerCase());
+                                index++;
+                                if (index >= key.length) {
+                                    console.log("found compleate phrase");
+                                    output++;
+                                    running = false;
+                                } else {
+                                    console.log("match did not work");
+                                    running = false;
+                                }
+                            }
 
-                    } else {//the keyword is one word
+                        }*/
 
+                        
 
-                    }
-                    //if yes get the previous sentece
+                        //for (var e = 0; e < key.length; e++) {
+                            
 
-                    //try to score the context
+                         
+                       // }
 
-                    //increase or decease output
-
-                    if (words[q].toLowerCase() == keywords[x].toLowerCase()) {//counts the number of keywors found
-                       // console.log(words[q].toLowerCase() +" "+ keywords[x].toLowerCase())
-
-                        output++;
-                    }
+                        //old non-working code
+                        /*var key = keywords[x].split(" ");
+                        var found = true;
+                        for (var e = 0; e < key.length; e++) {//checks multiword key words
+                            tempParse = words[q + e].toLowerCase();
+                            tempParse = removePunctation();//removes any punctiation from the word in question
+                            if (tempParse == key[e].toLowerCase()) {
+                                console.log("partial word was found");
+                            } else {
+                                found = false;
+                                break;
+                            }
+                        }
+                        if (found) {
+                            //for multiwords should go here
+                            output++;
+                        }*/
+                    }       
+         
                 }
             }
         } catch (err) {
             //console.log("could not convert part of article");
         }
     }
-   // console.log("number of political words = " + output);
+    console.log("finnished finding buzzwords");
     return output;
 }
 
@@ -92204,7 +92246,7 @@ function inPageAuthor(){
         var url3;
 
         //code to set each of the article links
-
+        
         //link elements to other pages
         var link1 = document.getElementById("link1");
         link1.setAttribute('href', url1)
