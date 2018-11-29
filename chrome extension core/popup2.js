@@ -91916,96 +91916,96 @@ WError.prototype.cause = function we_cause(c)
 const request = require('request');
 const cheerio = require('cheerio');
 
-var keywords = ["Abortion",
-        "Affirmative Action",
+var keywords = ["Abortion", //d
+        "Affirmative Action", //d
         "Alternative Energy",
-        "Armed Teachers",
+        "Armed Teachers",//r
         "Bitcoin",
-        "Border Security",
-        "Border Wall",
+        "Border Security",//r
+        "Border Wall",//r
         "Campaign Finance",
         "Candidate Transparency",
-        "Capital Gains Tax",
-        "China Tariffs",
+      "Capital Gains Tax", //d
+        "China Tariffs", //r
         "Citizenship Test",
-        "Climate Change",
-        "Confederate Flag",
+        "Climate Change", //d
+        "Confederate Flag", //r
         "Corporate Mega Mergers",
-        "Corporate Tax",
+        "Corporate Tax", //d
         "Criminal Politicians",
         "Cuba",
-        "Dakota Access Pipeline",
-        "Death Penalty",
-        "Deportation",//this is a 
-        "Deporting Criminal Immigrants",
-        "Domestic Jobs",
+       "Dakota Access Pipeline", //r
+      "Death Penalty", //r
+        "Deportation", //r
+       "Deporting Criminal Immigrants", //r
+        "Domestic Jobs", //r
         "Drones",
         "Drug Policy",
         "Drug Price Regulation",
         "Dual Citizenship",
-        "Economic Stimulus",
+        "Economic Stimulus", //d
         "Edward Snowden",
         "Electoral College",
         "Eminent Domain",
-        "Equal pay",
-        "Estate Tax",
+      "Equal pay", //d
+      "Estate Tax", //d
         "Euthanasia",
-        "Farm Subsidies",
+       "Farm Subsidies", //r
         "Federal Reserve",
         "First Amendment",
         "Flag Burning",
-        "Foreign Aid",
+      "Foreign Aid",// d
         "Foreign Elections",
         "Foreign Lobbying",
-        "Fracking",
-        "GMO Labels",
-        "Gay Marriage",
-        "Gender Identity",
-        "Gender Workplace Diversity",
-        "Gerrymandering",
+        "Fracking", //r
+     "GMO Labels", //r
+       "Gay Marriage", //d
+      "Gender Identity", // d
+     "Gender Workplace Diversity", //d
+     "Gerrymandering", //d
         "Government Mandates",
         "Government Pensions",
-        "Government Spending",
-        "Gun Control",
-        "Gun Liability",
-        "ISIS",
-        "ISIS Ground Troops",
-        "Illegal Immigrant Detention",
-        "Immigrant Assimilation",
-        "Immigrant Children",
-        "Immigrant Laborers",
-        "Immigration",
-        "Immigration Ban",
-        "Immigration Healthcare",
+       "Government Spending", //r
+     "Gun Control", //d
+        "Gun Liability", //d
+       "ISIS", //r
+      "ISIS Ground Troops", //r
+       "Illegal Immigrant Detention",//r
+      "Immigrant Assimilation", //d
+      "Immigrant Children", //d
+      "Immigrant Laborers", //d
+        "Immigration", //r
+      "Immigration Ban", //r
+       "Immigration Healthcare", //d
         "In-State Tuition",
-        "Israel",
-        "LGBT",
-        "Labor Unions",
+       "Israel", //r
+        "LGBT", //d
+       "Labor Unions", //d
         "Lobbyist",
         "Mandatory Military Service",
         "Mandatory Vaccines",
-        "Marijuana",
-        "Medicaid",
-        "Medicaid Work Requirement",
+       "Marijuana", //d
+      "Medicaid", //d
+      "Medicaid Work Requirement", //r
         "Medicare Drug Prices",
         "Mental Health",
-        "Military Spending",
-        "Minimum Voting Age",
-        "Minimum Wage",
-        "Muslim Immigrants",
-        "Muslim Surveillance",
+      "Military Spending", //d
+       "Minimum Voting Age",
+      "Minimum Wage", //d
+       "Muslim Immigrants", //r
+       "Muslim Surveillance", //r
         "NAFTA",
         "NATO",
-        "NSA Domestic Surveillance",
-        "NSA Surveillance",
-        "Net Neutrality",
-        "Niqāb",
-        "No-Fly List Gun Control",
-        "North Korea Military Strikes",
+        "NSA Domestic Surveillance", //r
+        "NSA Surveillance", //r
+      "Net Neutrality", //d
+      "Niqab", //d
+       "No-Fly List Gun Control", //d
+       "North Korea Military Strikes", //r
         "Nuclear Energy",
-        "Obamacare",
+       "Obamacare", //d
         "Offshore Banking",
-        "Oil Drilling",
+       "Oil Drilling",// r
         "Online Sales Tax",
         "Overtime Pay",
         "Paid Sick Leave",
@@ -92013,21 +92013,22 @@ var keywords = ["Abortion",
         "Pension Reform",
         "Plastic Product Ban",
         "Pre-Existing Conditions",
-        "Pro-life",
-        "Property Taxes",
-        "Religious Freedom Act",
-        "Right of Foreigners to Vote",
-        "Safe Haven",
-        "Safe Spaces",
-        "Sanctuary Cities",
-        "Single-Payer Healthcare",
+       "Pro-life", //r
+       "pro life", //r
+       "Property Taxes",
+       "Religious Freedom Act", //d
+        "Right of Foreigners to Vote", //d
+       "Safe Haven", //d
+      "Safe Spaces", //d
+      "Sanctuary Cities", //d
+        "Single-Payer Healthcare", 
         "Skilled Immigrants",
-        "Social Media Regulation",
+       "Social Media Regulation", //r
         "Social Security",
         "Space Exploration",
         "Syrian Refugees",
-        "Tariffs",
-        "Taxes",
+      "Tariffs", //r
+      "Taxes", ///r
         "Term Limits",
         "Terrorism",
         "Torture",
@@ -92036,15 +92037,149 @@ var keywords = ["Abortion",
         "Universal Basic Income",
         "VA Privatization",
         "Voter Fraud",
-        "War on ISIS",
-        "Welfare",
-        "Welfare Drug Testing",
+       "War on ISIS", //r
+       "Welfare", //d
+       "Welfare Drug Testing", //r
         "Whistleblower Protection",
-        "Women in combat",
+       "Women in combat", //d
         "Yemen"
+];
+
+
+
+var keyvalue = [
+    'd',
+    'd',
+    'o',
+    'r',
+    'o',
+    'r',
+    'r',
+    'o',
+    'd',
+    'r',
+    'o',
+    'd',
+    'r',
+    'o',
+    'd',
+    'o',
+    'o',
+    'r',
+    'r',
+    'r',
+    'r',
+    'r',
+    'o',
+    'o',
+    'o',
+    'o',
+    'd',
+    'o',
+    'o',
+    'o',
+    'd',
+    'd',
+    'o',
+    'r',
+    'o',
+    'o',
+    'o',
+    'd',
+    'o',
+    'o',
+    'r',
+    'r',
+    'd',
+    'd',
+    'd',
+    'd',
+    'o',
+    'o',
+    'r',
+    'd',
+    'd',
+    'r',
+    'r',
+    'r',
+    'd',
+    'd',
+    'd',
+    'r',
+    'r',
+    'd',
+    'o',
+    'r',
+    'd',
+    'd',
+    'o',
+    'o',
+    'o',
+    'd',
+    'd',
+    'r',
+    'o',
+    'o',
+    'd',
+    'o',
+    'd',
+    'r',
+    'r',
+    'o',
+    'o',
+    'r',
+    'r',
+    'd',
+    'd',
+    'd',
+    'r',
+    'o',
+    'd',
+    'o',
+    'r',
+    'o',
+    'o',
+    'o',
+    'o',
+    'o',
+    'o',
+    'o',
+    'o',
+    'r',
+    'r',
+    'o',
+    'd',
+    'd',
+    'd',
+    'd',
+    'd',
+    'o',
+    'o',
+    'r',
+    'o',
+    'o',
+    'o',
+    'r',
+    'r',
+    'o',
+    'o',
+    'o',
+    'o',
+    'o',
+    'o',
+    'o',
+    'o',
+    'r',
+    'd',
+    'r',
+    'o',
+    'd',
+    'o',
+
 
 ];
 
+//removed dwords from the keyword
 var dwords = ["Abortion",
         "Affirmative Action",
         "Capital Gains Tax",
@@ -92070,7 +92205,7 @@ var dwords = ["Abortion",
         "Military Spending",
         "Minimum Wage",
         "Net Neutrality",
-        "Niqāb",
+        "Niqab",
         "No-Fly List Gun Control",
         "Obamacare",
         "Religious Freedom Act",
@@ -92081,40 +92216,40 @@ var dwords = ["Abortion",
         "Welfare",
         "Women in combat",
 ];
-
+// removed rwords from keywords
 var rwords = ["Armed Teachers",
         "Border Security",
-        "Border Wall",
-        "China Tariffs",
-        "Confederate Flag",
+        "Border Wall",//
+        "China Tariffs",//
+        "Confederate Flag",//
         "Dakota Access Pipeline",
-        "Death Penalty",
-        "Deportation",
-        "Deporting Criminal Immigrants",
-        "Domestic Jobs",
+        "Death Penalty",//
+        "Deportation",//
+        "Deporting Criminal Immigrants",//
+        "Domestic Jobs",//
         "Farm Subsidies",
-        "First Amendment",
-        "Fracking",
-        "GMO Labels",
-        "Government Spending",
-        "ISIS",
-        "ISIS Ground Troops",
-        "Illegal Immigrant Detention",
-        "Immigrant Assimilation",
-        "Immigration Ban",
-        "Israel",
-        "Medicaid Work Requirement",
+        "First Amendment",//
+        "Fracking",//
+        "GMO Labels",//
+        "Government Spending",//
+        "ISIS",//
+        "ISIS Ground Troops",//
+        "Illegal Immigrant Detention",//
+        "Immigrant Assimilation",///
+        "Immigration Ban",//
+        "Israel",//
+        "Medicaid Work Requirement",//
         "Muslim Immigrants",
-        "Muslim Surveillance",
-        "NSA Surveillance",
-        "North Korea Military Strikes",
-        "Oil Drilling",
+        "Muslim Surveillance",//
+        "NSA Surveillance", //
+        "North Korea Military Strikes",//
+        "Oil Drilling",//
         "Patriot Act",
-        "Pro-life",
-        "Social Media Regulation",
-        "Tariffs",
-        "War on ISIS",
-        "Welfare Drug Testing",
+        "Pro-life",//
+        "Social Media Regulation",//
+        "Tariffs",//
+        "War on ISIS",//
+        "Welfare Drug Testing",//
 ];
 
 var negations = ["barely",
@@ -92154,7 +92289,7 @@ function removePunctuation(word) {
 
 var art = [];
 
-var tempParse;
+
 
 function getBais() {
         var total = 0; // the score
@@ -92162,7 +92297,7 @@ function getBais() {
         var dscore = 0; // democrat score
 
         var words;
-
+        var tempParse;
         console.log("searching for pollitical buzz words");
 
         for (var i = 0; i < (art.length - 1); i++) { //loops through each readible paragraph
@@ -92242,7 +92377,6 @@ function getBais() {
                                                                         }
                                                                 }
                                                         }
-
                                                         total++;
                                                 }
                                             
@@ -92283,7 +92417,6 @@ function FindAuthor() {
                 if (found) {
                         break;
                 }
-
                 // console.log("secton: " + i);
                 try {
                         //console.log(art[i].toString());
@@ -92295,7 +92428,6 @@ function FindAuthor() {
                                                 //   console.log("found by");
                                                 //   console.log(words.length);
                                                 //   console.log(q);
-
                                                 if (!((words.length - 1) == q)) { //!(words.length == (q - 1))
                                                         found = true;
                                                         //  console.log("found the real");
@@ -92309,11 +92441,9 @@ function FindAuthor() {
                                                                 }
                                                         }
                                                 }
-
                                         }
                                 }
                         }
-
                 } catch (err) {
                         //console.log("could not convert part of article");
                 }
@@ -92363,14 +92493,7 @@ function inPageAuthor() {
                         } //$("h2, div, p")
                 });
 
-
-                //proof of concept code - displays data in a new tab
-                //chrome.tabs.create({"active": false, "url": "debug.html"});
-
-
-                //end proof of concept section
-
-
+         
                 //code to find author of webpage
                 console.log("finding the author");
                 author = FindAuthor();
@@ -92379,12 +92502,14 @@ function inPageAuthor() {
 
                 //code to calculate bias of author on webpage
 
-                //link urls
-                var url1; //these should be set to a default page in the future
+                //link urls to other information about the authors
+                var url1; 
                 var url2;
                 var url3;
 
                 //code to set each of the article links
+                    
+
 
                 //link elements to other pages
                 var link1 = document.getElementById("link1");
@@ -92403,8 +92528,7 @@ function inPageAuthor() {
                 document.getElementById("link2").innerHTML = "Article 2";
                 document.getElementById("link3").innerHTML = "Article 3";
 
-
-        });
+            });
 
 
 }
