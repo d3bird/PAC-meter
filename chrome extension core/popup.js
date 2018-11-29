@@ -24,7 +24,7 @@ var keywords = ["Abortion",
         "Cuba",
         "Dakota Access Pipeline",
         "Death Penalty",
-        "Deportation",
+        "Deportation",//this is a 
         "Deporting Criminal Immigrants",
         "Domestic Jobs",
         "Drones",
@@ -242,7 +242,7 @@ function removePunctuation(word) {
 
 var art = [];
 
-var tempParse;
+
 
 function getBais() {
         var total = 0; // the score
@@ -250,7 +250,7 @@ function getBais() {
         var dscore = 0; // democrat score
 
         var words;
-
+        var tempParse;
         console.log("searching for pollitical buzz words");
 
         for (var i = 0; i < (art.length - 1); i++) { //loops through each readible paragraph
@@ -330,7 +330,6 @@ function getBais() {
                                                                         }
                                                                 }
                                                         }
-
                                                         total++;
                                                 }
                                             
@@ -371,7 +370,6 @@ function FindAuthor() {
                 if (found) {
                         break;
                 }
-
                 // console.log("secton: " + i);
                 try {
                         //console.log(art[i].toString());
@@ -383,7 +381,6 @@ function FindAuthor() {
                                                 //   console.log("found by");
                                                 //   console.log(words.length);
                                                 //   console.log(q);
-
                                                 if (!((words.length - 1) == q)) { //!(words.length == (q - 1))
                                                         found = true;
                                                         //  console.log("found the real");
@@ -397,11 +394,9 @@ function FindAuthor() {
                                                                 }
                                                         }
                                                 }
-
                                         }
                                 }
                         }
-
                 } catch (err) {
                         //console.log("could not convert part of article");
                 }
@@ -444,21 +439,14 @@ function inPageAuthor() {
                                 //   console.log("the article was created by");
                                 $("#author creator, p").each(function(i, elem) { //gets the website and adds the article to the art array;
                                         art.push($(this).text());
-                                        //  console.log($(this).text());
-                                        //  console.log();
+                                         console.log($(this).text());
+                                      
                                 });
 
                         } //$("h2, div, p")
                 });
 
-
-                //proof of concept code - displays data in a new tab
-                //chrome.tabs.create({"active": false, "url": "debug.html"});
-
-
-                //end proof of concept section
-
-
+         
                 //code to find author of webpage
                 console.log("finding the author");
                 author = FindAuthor();
@@ -467,12 +455,14 @@ function inPageAuthor() {
 
                 //code to calculate bias of author on webpage
 
-                //link urls
-                var url1; //these should be set to a default page in the future
+                //link urls to other information about the authors
+                var url1; 
                 var url2;
                 var url3;
 
                 //code to set each of the article links
+                    
+
 
                 //link elements to other pages
                 var link1 = document.getElementById("link1");
@@ -491,8 +481,7 @@ function inPageAuthor() {
                 document.getElementById("link2").innerHTML = "Article 2";
                 document.getElementById("link3").innerHTML = "Article 3";
 
-
-        });
+            });
 
 
 }
