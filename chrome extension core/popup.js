@@ -1,4 +1,4 @@
-//author: Joey Cunningham & scott Crawford
+//author: Joey Cunningham, Scott Crawford, Tim Minear & Jesse Runner
 
 
 const request = require('request');
@@ -268,27 +268,6 @@ var keyvalue = [
 
 ];
 
-var negations = ["barely",
-        "can't",
-        "couldn't",
-        "doesn't",
-        "don't",
-        "hardly",
-        "isn't",
-        "neither",
-        "never",
-        "no",
-        "nobody",
-        "none",
-        "not",
-        "nothing",
-        "nowhere",
-        "scarcely",
-        "shouldn't",
-        "wasn't",
-        "won't",
-        "wouldn't"
-]
 
 function removePunctuation(word) {
 
@@ -303,6 +282,48 @@ function removePunctuation(word) {
 
   }
 
+function findnegation (paragraph, index){
+  var negations = ["barely",
+          "can't",
+          "couldn't",
+          "doesn't",
+          "don't",
+          "hardly",
+          "isn't",
+          "neither",
+          "never",
+          "no",
+          "nobody",
+          "none",
+          "not",
+          "nothing",
+          "nowhere",
+          "scarcely",
+          "shouldn't",
+          "wasn't",
+          "won't",
+          "wouldn't"
+  ]
+var length = paragraph.length - 1; // used for boundary conditions
+var n = paragraph; //
+var bool = false; // bool condition used to determine if negation is used
+
+for (var i = index; i > 0 || n[i.length - 1] == '.' || n[i.length - 1] == '?'; i--){ // checks the same sentence the keyword was found in moving backwards in sentence
+    for (var j = 0; j < negations.length - 1; j++){
+      if(n[i] == negations[j])
+          bool = true;
+    }
+}
+
+for (var i = index; i < length || n[i.length - 1] == '.' || n[i.length - 1] == '?'; i++){ // checks the same sentence the keyword was found in moving forwards in sentence
+    for( var j = 0; j < negations.length - 1; j++){
+          if (n[i] == negations[j])
+            bool = true;
+    }
+}
+return bool;
+}
+
 var art = [];
 
 
@@ -314,12 +335,14 @@ function getBais() {
 
         var words;
         var parsed;
+        var negationfound; // bool variable used to determine whether to detract from Rscore/Dscore
+
         console.log("searching for pollitical buzz words");
 
         for (var i = 0; i < (art.length); i++) { //loops through each readible paragraph
                 try {
                         words = art[i].split(" ");
-
+                        console.log(words);
                         for (var q = 0; q < (words.length); q++) { //loops through each word
                                 //make sure the word is lowercase
                                 parsed = words[q]
@@ -334,12 +357,25 @@ function getBais() {
 
                                                 if (parsed == keywords[x]) { // if the word matchs the keyword
                                                         console.log(words[q]);
+                                                        negationfound = findnegation(words,q);
+                                                        if(negationfound == true){ // determines whether or not the context of the word was negative
+                                                          console.log("We've got a negation on our hands");
+                                                            if (keyvalue[x] == 'd') {
+                                                                    dscore--;
+                                                                }
+                                                                if (keyvalue[x] == 'r') {
+                                                                    rscore--;
+                                                                }
 
-                                                        if (keyvalue[x] == 'd') {
-                                                                dscore++;
                                                         }
-                                                        if (keyvalue[x] == 'r') {
+                                                        else{
+
+                                                            if (keyvalue[x] == 'd') {
+                                                                dscore++;
+                                                            }
+                                                            if (keyvalue[x] == 'r') {
                                                                 rscore++;
+                                                            }
                                                         }
 
                                                         total++;
