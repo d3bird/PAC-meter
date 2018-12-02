@@ -316,13 +316,14 @@ function getBais() {
         var parsed;
         console.log("searching for pollitical buzz words");
 
-        for (var i = 0; i < (art.length - 1); i++) { //loops through each readible paragraph
+        for (var i = 0; i < (art.length); i++) { //loops through each readible paragraph
                 try {
                         words = art[i].split(" ");
 
-                        for (var q = 0; q < (words.length - 1); q++) { //loops through each word
+                        for (var q = 0; q < (words.length); q++) { //loops through each word
                                 //make sure the word is lowercase
-                                parsed = words[q].toLowerCase();
+                                parsed = words[q]
+                                parsed = parsed.toLowerCase();
 
                                 //removes any punctiation from the word in question (implemented)
                                 parsed = removePunctuation(parsed);
@@ -386,14 +387,20 @@ function getBais() {
                         //console.log("could not convert part of article");
                 }
         }
-        console.log("finnished finding buzzwords");
+        console.log("finished finding buzzwords");
 
         //now we have all of the keywords from the article logged, we can use the
         //values to construct a value
         //calculate: 0 is the middle, -100 is max_dem, 100 is max_repub
         if (total != 0) { //have to check for tricky articles with 0 buzzwords
+                var neutral = "Neutral"; // only used when rscore equals dscore
+                console.log(dscore);
+                console.log(rscoe);
+                console.log(total);
+                if(rscore == dscore)
+                return neutral; // Decided neutral looked better than a zero value
                 var final_score = ((rscore - dscore) / total) * 100;
-
+                console.log(final_score);
                 return final_score;
 
         } else {
