@@ -292,16 +292,16 @@ var negations = ["barely",
 
 function removePunctuation(word) {
 
-        var n = word.length - 1; //only checking for punctuation at the end of the word
+        var n = word //only checking for punctuation at the end of the word
 
-        //common punctuation
-        if (word[n] == '.' || word[n] == '?' || word[n] == ',' || word[n] == '!') {
-                word = word.substr(0, n - 1); //parse the last character off
+          //common punctuation
+        if (n[n.length - 1] == '.' || n[n.length - 1] == '?' || n[n.length - 1] == ',' || n[n.length-1] == '!' || n[n.length-1] == ":") {
+                word = word.substr(0, n.length - 1); //parse the last character off
         }
 
         return word; //return the word
 
-}
+  }
 
 var art = [];
 
