@@ -394,9 +394,6 @@ function getBais() {
         //calculate: 0 is the middle, -100 is max_dem, 100 is max_repub
         if (total != 0) { //have to check for tricky articles with 0 buzzwords
                 var neutral = "Neutral"; // only used when rscore equals dscore
-                console.log(dscore);
-                console.log(rscoe);
-                console.log(total);
                 if(rscore == dscore)
                 return neutral; // Decided neutral looked better than a zero value
                 var final_score = ((rscore - dscore) / total) * 100;
