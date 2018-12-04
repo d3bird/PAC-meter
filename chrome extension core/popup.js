@@ -4,6 +4,8 @@
 const request = require('request');
 const cheerio = require('cheerio');
 
+
+
 var keywords = ["abortion", //d
         "affirmative action", //d
         "alternative energy", //
@@ -133,7 +135,6 @@ var keywords = ["abortion", //d
         "yemen" //
 
 ];
-
 
 
 var keyvalue = [
@@ -326,7 +327,7 @@ return bool;
 
 var art = [];
 
-
+var TWfound;
 
 function getBais() {
         var total = 0; // the score
@@ -342,15 +343,15 @@ function getBais() {
         for (var i = 0; i < (art.length); i++) { //loops through each readible paragraph
                 try {
                         words = art[i].split(" ");
-                        console.log(words);
+                        //console.log(words);
                         for (var q = 0; q < (words.length); q++) { //loops through each word
                                 //make sure the word is lowercase
                                 parsed = words[q]
                                 parsed = parsed.toLowerCase();
-
                                 //removes any punctiation from the word in question (implemented)
-                                parsed = removePunctuation(parsed);
-
+                                parsed = removePunctuation(parsed); //working
+                        
+                        
                                 for (var x = 0; x < (keywords.length - 1); x++) { //loops through all keywords
 
                                         if (keywords[x].indexOf(" ") == -1) { // if there is no spaces
@@ -411,7 +412,6 @@ function getBais() {
                                                         if (keyvalue[x] == 'r') {
                                                                 rscore++;
                                                         }
-
                                                         total++;
                                                 }
 
@@ -420,22 +420,23 @@ function getBais() {
                                 }
                         }
                 } catch (err) {
-                        //console.log("could not convert part of article");
+                       // console.log("could not convert part of article");
                 }
         }
-        console.log("finished finding buzzwords");
-
+        //console.log("finished finding buzzwords");
+    TWfound = total;
         //now we have all of the keywords from the article logged, we can use the
         //values to construct a value
         //calculate: 0 is the middle, -100 is max_dem, 100 is max_repub
         if (total != 0) { //have to check for tricky articles with 0 buzzwords
                 var neutral = "Neutral"; // only used when rscore equals dscore
-                if(rscore == dscore)
+            if (rscore == dscore) {
                 return neutral; // Decided neutral looked better than a zero value
+            } else {
                 var final_score = ((rscore - dscore) / total) * 100;
-                console.log(final_score);
+                //console.log(final_score);
                 return final_score;
-
+            }
         } else {
                 return -999;
         }
@@ -495,7 +496,7 @@ function FindAuthor() {
 automaticButton.addEventListener("click", inPageAuthor);
 
 function inPageAuthor() {
-
+    TWfound = 0;
         //populate array with current active tab
         chrome.tabs.query({
                 "active": true
@@ -504,7 +505,7 @@ function inPageAuthor() {
 
                 var rating = 0; // integer level of bias
                 var author = "temp"; //author of webpage
-
+                
                 request(currentURL, function(error, response, html) {
                         if (!error && response.statusCode == 200) {
                                 //console.log(html);
@@ -524,7 +525,7 @@ function inPageAuthor() {
                                 //   console.log("the article was created by");
                                 $("#author creator, p").each(function(i, elem) { //gets the website and adds the article to the art array;
                                         art.push($(this).text());
-                                        console.log($(this).text());
+                                       // console.log($(this).text());
 
                                 });
 
@@ -533,38 +534,45 @@ function inPageAuthor() {
 
 
                 //code to find author of webpage
-                console.log("finding the author");
+               // console.log("finding the author");
                 author = FindAuthor();
-                console.log(author);
+                //console.log(author);
                 var bias = getBais(); //numberical value of bias
 
                 //code to calculate bias of author on webpage
 
                 //link urls to other information about the authors
-                var url1;
-                var url2;
-                var url3;
+                //var url1;
+                //var url2;
+               // var url3;
 
                 //code to set each of the article links
 
 
 
                 //link elements to other pages
-                var link1 = document.getElementById("link1");
+               /* var link1 = document.getElementById("link1");
                 link1.setAttribute('href', url1)
                 var link2 = document.getElementById("link2");
                 link2.setAttribute('href', url2);
                 var link3 = document.getElementById("link3");
                 link3.setAttribute('href', url3);
+            */
+
+
 
                 //adding html to results page
-                document.getElementById("resultsHeading").innerHTML = "Results:";
-                document.getElementById("authorHeading").innerHTML = "-Author: " + author;
-                document.getElementById("biasHeading").innerHTML = "-Bias: " + bias;
-                document.getElementById("linksHeading").innerHTML = "-Other Articles by " + author;
-                document.getElementById("link1").innerHTML = "Article 1";
-                document.getElementById("link2").innerHTML = "Article 2";
-                document.getElementById("link3").innerHTML = "Article 3";
+
+            document.getElementById("resultsHeading").innerHTML = "Results:";
+            document.getElementById("authorHeading").innerHTML = "-Author: " + author;
+            document.getElementById("totalsWords").innerHTML = "-total buzz words found " + TWfound;
+            document.getElementById("biasHeading").innerHTML = "-Bias: " + bias;
+            document.getElementById("description").innerHTML = "0 = neither conservative or liberal";
+            document.getElementById("description1").innerHTML = "negative score = more conservative";
+            document.getElementById("description2").innerHTML = "Possitive score = more liberal";
+                //document.getElementById("link1").innerHTML = "Article 1";
+                //document.getElementById("link2").innerHTML = "Article 2";
+                //document.getElementById("link3").innerHTML = "Article 3";
 
         });
 

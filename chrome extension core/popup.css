@@ -34,22 +34,46 @@
     width: 240px;
 }
 
-#resultsHeading{
+#resultsHeading {
     position: relative;
-    left: 60px;
+    left: 50px;
     bottom: 15px;
 }
 
-#authorHeading{
+#authorHeading {
     position: relative;
-    left: 60px;
+    left: 50px;
     bottom: 30px;
 }
 
-#biasHeading{
+#biasHeading {
     position: relative;
-    left: 60px;
+    left: 50px;
     bottom: 43px;
+}
+
+#totalsWords {
+    position: relative;
+    left: 50px;
+    bottom: 50px;
+}
+
+#description {
+    position: relative;
+    left: 50px;
+    bottom: 55px;
+}
+
+#description1 {
+    position: relative;
+    left: 50px;
+    bottom: 60px;
+}
+
+#description2 {
+    position: relative;
+    left: 50px;
+    bottom: 65px;
 }
 
 #linksHeading{
@@ -58,7 +82,7 @@
     bottom: 55px;
 }
 
-#link1{
+#link1 {
     position: relative;
     left: 80px;
     bottom: 55px;
