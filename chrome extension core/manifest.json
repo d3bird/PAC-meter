@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "Political Alignment Checker",
-    "version": "0.1",
+    "version": "1.0",
     "description": "Determines the political tendency of an article's author",
     "icons":{
         "128": "icon128.png",
