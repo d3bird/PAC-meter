@@ -330,6 +330,7 @@ var art = [];
 var TWfound;
 
 function getBais() {
+        TWfound = 0;
         var total = 0; // the score
         var rscore = 0; // republican score
         var dscore = 0; // democrat score
@@ -354,80 +355,121 @@ function getBais() {
                         
                                 for (var x = 0; x < (keywords.length - 1); x++) { //loops through all keywords
 
-                                        if (keywords[x].indexOf(" ") == -1) { // if there is no spaces
+                                    if (keywords[x].indexOf(" ") == -1) { // if there is no spaces
 
-                                                if (parsed == keywords[x]) { // if the word matchs the keyword
-                                                        console.log(words[q]);
-                                                        negationfound = findnegation(words,q);
-                                                        if(negationfound == true){ // determines whether or not the context of the word was negative
-                                                          console.log("We've got a negation on our hands");
-                                                            if (keyvalue[x] == 'd') {
-                                                                    dscore--;
-                                                                }
-                                                                if (keyvalue[x] == 'r') {
-                                                                    rscore--;
-                                                                }
+                                        if (parsed == keywords[x]) { // if the word matchs the keyword
 
-                                                        }
-                                                        else{
 
-                                                            if (keyvalue[x] == 'd') {
-                                                                dscore++;
-                                                            }
-                                                            if (keyvalue[x] == 'r') {
-                                                                rscore++;
-                                                            }
-                                                        }
-
-                                                        total++;
+                                            console.log(words[q]);
+                                            total++;
+                                            //console.log("total words found: " + total);
+                                            negationfound = findnegation(words, q);
+                                            if (negationfound == true) { // determines whether or not the context of the word was negative
+                                                //console.log("We've got a negation on our hands");
+                                                if (keyvalue[x] == 'd') {
+                                                    dscore--;
                                                 }
-                                        } else { // if there are more spaces
-                                                //console.log("next keyword has spaces : " + keywords[x]);
-
-                                                var wOfw = keywords[x].split(" "); //split into an array of words
-                                                var len = wOfw.length - 1; //length of the array
-
-                                                var match = true; //if the multiword 100% matches
-
-                                                //check to see if the first word in the multiword matches, see if the rest do
-                                                if (wOfw[0] == parsed) {
-
-                                                        for (var y = 1; y < len; ++y) { //go through the multiword
-                                                                //if the keyword doesn't match the next word in the article match = false
-                                                                if (wOfw[y] != removePunctuation(words[q + y].toLowerCase())) {
-                                                                        match = false;
-                                                                }
-                                                        }
-
-                                                } else { //otherwise it cant match
-                                                        match = false;
+                                                if (keyvalue[x] == 'r') {
+                                                    rscore--;
                                                 }
 
-                                                //if its a match we need to add it to either dscore, rscore, or just to the total
-                                                if (match) {
+                                            }
+                                            else {
 
-                                                        if (keyvalue[x] == 'd') {
-                                                                dscore++;
-                                                        }
-                                                        if (keyvalue[x] == 'r') {
-                                                                rscore++;
-                                                        }
-                                                        total++;
+                                                if (keyvalue[x] == 'd') {
+                                                    dscore++;
                                                 }
+                                                if (keyvalue[x] == 'r') {
+                                                    rscore++;
+                                                }
+                                            }
+
+
+                                        }
+                                    } else { // if there are more spaces
+                                        //console.log("next keyword has spaces : " + keywords[x]);
+
+                                        var mw = keywords[x].split(" ");
+
+                                        if (mw[0] == parsed) {
+                                          //  console.log("multiwor match");
+                                           // console.log(mw[0] + " = " + parsed);
+                                            var ma = true;
+                                            var temppars;
+                                            for (var r = 1; r < mw.length; r++) {
+                                                temppars = removePunctuation(words[q + r].toLowerCase());
+                                                //console.log(mw[r] + " = " + temppars);
+                                                if (mw[r] != temppars) {
+                                                    //console.log("does not match");
+                                                    ma = false;
+                                                    break; 
+                                                }
+                                            }
+                                            if (ma) {
+                                                total++;
+                                                console.log(keywords[x]);
+                                                if (keyvalue[x] == 'd') {
+                                                    dscore++;
+                                                }
+                                                if (keyvalue[x] == 'r') {
+                                                    rscore++;
+                                                }
+
+                                            }
 
                                         }
 
+
+
+                                        /*
+                                        var wOfw = keywords[x].split(" "); //split into an array of words
+                                            var len = wOfw.length - 1; //length of the array
+
+                                            var match = true; //if the multiword 100% matches
+
+                                            //check to see if the first word in the multiword matches, see if the rest do
+                                            if (wOfw[0] == parsed) {
+
+                                                    for (var y = 1; y < len; ++y) { //go through the multiword
+                                                            //if the keyword doesn't match the next word in the article match = false
+                                                        console.log(wOfw[y] + " = " + removePunctuation(words[q + y].toLowerCase()));
+                                                            if (wOfw[y] != removePunctuation(words[q + y].toLowerCase())) {
+                                                                    match = false;
+                                                            }
+                                                    }
+
+                                            } else { //otherwise it cant match
+                                                    match = false;
+                                            }
+
+                                            //if its a match we need to add it to either dscore, rscore, or just to the total
+                                        if (match) {
+
+                                                //total++;
+                                                console.log("there was a multiword match");
+                                                    if (keyvalue[x] == 'd') {
+                                                            dscore++;
+                                                    }
+                                                    if (keyvalue[x] == 'r') {
+                                                            rscore++;
+                                                    }
+                                                
+                                            }
+
+                                    */
+                                    }
                                 }
                         }
                 } catch (err) {
                        // console.log("could not convert part of article");
                 }
         }
-        //console.log("finished finding buzzwords");
+      
     TWfound = total;
         //now we have all of the keywords from the article logged, we can use the
         //values to construct a value
         //calculate: 0 is the middle, -100 is max_dem, 100 is max_repub
+    console.log("total words found: " + total);
         if (total != 0) { //have to check for tricky articles with 0 buzzwords
                 var neutral = "Neutral"; // only used when rscore equals dscore
             if (rscore == dscore) {
